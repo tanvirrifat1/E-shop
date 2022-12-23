@@ -15,9 +15,9 @@ import { Pagination, Navigation } from "swiper";
 import img1 from '../../../assets/slider/laptop.webp'
 import img2 from '../../../assets/slider/smartwatch.webp'
 import img3 from '../../../assets/slider/phone.webp'
-import img4 from '../../../assets/slider/headphone.webp'
-import img5 from '../../../assets/slider/camera.webp'
-import img6 from '../../../assets/slider/monitor.webp'
+import img4 from '../../../assets/slider/shoes.jpg'
+import img5 from '../../../assets/slider/jacket.webp'
+import img6 from '../../../assets/slider/bag.webp'
 
 
 const Slider = () => {

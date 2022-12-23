@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
 
     const menuItmes = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/orders'>Orders</Link></li>
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='/login'>Login</Link></li>
+        <li className='font-bold'><Link to='/'>Home</Link></li>
+        <li className='font-bold'><Link to='/orders'>Orders</Link></li>
+        <li className='font-bold'><Link to='/about'>About</Link></li>
+        <li className='font-bold'><Link to='/login'>Login</Link></li>
 
     </>
 
