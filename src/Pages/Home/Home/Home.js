@@ -1,6 +1,7 @@
 import React from 'react';
 import Collections from '../Collection/Collections';
 import InfoCards from '../InfoCard/InfoCards';
+import MakeSmartHuman from '../MakeSmart/MakeSmartHuman';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             <Slider></Slider>
             <InfoCards></InfoCards>
             <Collections></Collections>
+            <MakeSmartHuman></MakeSmartHuman>
         </div>
     );
 };
