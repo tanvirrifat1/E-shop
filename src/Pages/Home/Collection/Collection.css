@@ -2,3 +2,11 @@
     height: 300px;
     width: 100%;
 }
+
+.card-details{
+    transition: transform .4s ease;
+
+}
+.card-details:hover{
+transform: scale(1.2);
+}
