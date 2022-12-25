@@ -3,6 +3,7 @@ import Collections from '../Collection/Collections';
 import InfoCards from '../InfoCard/InfoCards';
 import MakeSmartHuman from '../MakeSmart/MakeSmartHuman';
 import Slider from '../Slider/Slider';
+import Testimonial from '../Testimonial/Testimonial';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <InfoCards></InfoCards>
             <Collections></Collections>
             <MakeSmartHuman></MakeSmartHuman>
+            <Testimonial></Testimonial>
         </div>
     );
 };
