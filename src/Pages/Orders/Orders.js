@@ -3,7 +3,7 @@ import OrderBanner from './OrderBanner/OrderBanner';
 
 const Orders = () => {
     return (
-        <div>
+        <div className=''>
             <OrderBanner></OrderBanner>
         </div>
     );
