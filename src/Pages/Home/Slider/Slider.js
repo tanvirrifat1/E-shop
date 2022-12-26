@@ -34,7 +34,7 @@ const Slider = () => {
                 }}
                 navigation={true}
                 modules={[Pagination, Navigation]}
-                className="mySwiper"
+                className="mySwiper "
             >
                 <SwiperSlide><img src={img1} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={img2} alt="" /></SwiperSlide>

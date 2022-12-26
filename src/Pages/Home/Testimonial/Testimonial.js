@@ -78,7 +78,7 @@ const Testimonial = () => {
                 <SwiperSlide><div>
                     <div className="avatar">
                         <div className="w-24 rounded-full">
-                            <img src={pant} />
+                            <img src={balt} />
                         </div>
                     </div>
                     <p>A belt is a loop of flexible material used to link two or more rotating shafts mechanically, most often parallel. Belts may be used as a source of motion, to transmit power efficiently or to track relative movement.</p>
