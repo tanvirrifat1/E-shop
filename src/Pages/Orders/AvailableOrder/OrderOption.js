@@ -1,7 +1,7 @@
 import React from 'react';
 import './OrderOption.css'
 
-const OrderOption = ({ option }) => {
+const OrderOption = ({ option, setTreatment }) => {
     const { name, slots, image } = option
     return (
         <div>
@@ -14,7 +14,11 @@ const OrderOption = ({ option }) => {
                     <p className='text-center'>{slots.length > 0 ? slots[0] : "Try another day"}</p>
                     <p className='text-center'>{slots.length} {slots.length > 1 ? "spaces" : "space"} Available</p>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-secondary">Buy Now</button>
+                        <label
+                            onClick={() => setTreatment(option)}
+                            htmlFor="openModal"
+                            className="btn btn-secondary"
+                        >Buy Now</label>
                     </div>
                 </div>
             </div>
