@@ -28,6 +28,7 @@ const AvailableOrder = ({ selectedDate }) => {
                 <BookingModal
                     selectedDate={selectedDate}
                     treatment={treatment}
+                    setTreatment={setTreatment}
                 ></BookingModal>
             }
         </div>

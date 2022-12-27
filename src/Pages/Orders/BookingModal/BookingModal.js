@@ -1,7 +1,8 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const BookingModal = ({ treatment, selectedDate }) => {
+const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
     const { name, image, slots } = treatment
     const date = format(selectedDate, 'PP')
 
@@ -13,7 +14,17 @@ const BookingModal = ({ treatment, selectedDate }) => {
         const email = form.email.value;
         const phone = form.phone.value;
 
-        console.log(date, name, slot, email, phone)
+        const booking = {
+            orderDate: date,
+            treatment: name,
+            userName: name,
+            slot,
+            email,
+            phone
+        }
+        console.log(booking)
+        toast.success('Done')
+        setTreatment(null)
     }
 
     return (
@@ -33,7 +44,11 @@ const BookingModal = ({ treatment, selectedDate }) => {
                         <input type="text" value={date} readOnly className="input input-bordered input-primary mt-4 w-full" />
                         <select name='slot' className="select w-full input-primary mt-3">
                             {
-                                slots.map(slot => <option value={slot}>{slot}</option>)
+                                slots.map((slot, i) => <option
+                                    key={i}
+                                    value={slot}>
+                                    {slot}
+                                </option>)
                             }
                         </select>
                         <input name='name' type="text" placeholder="Your Name" className="input input-bordered input-primary mt-3 w-full" />
