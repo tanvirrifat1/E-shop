@@ -16,6 +16,7 @@ const OrderOption = ({ option, setTreatment }) => {
                     <div className="card-actions justify-center">
                         <label
                             onClick={() => setTreatment(option)}
+                            disabled={slots.length === 0}
                             htmlFor="openModal"
                             className="btn btn-secondary"
                         >Buy Now</label>
