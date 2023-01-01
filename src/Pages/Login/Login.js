@@ -6,7 +6,7 @@ import './Login.css'
 
 const Login = () => {
 
-    const { register, handleSubmit } = useForm()
+    const { register, formState: { errors }, handleSubmit } = useForm()
 
     const handleLogin = data => {
         console.log(data)
@@ -24,7 +24,7 @@ const Login = () => {
                                 required: "Email Address is required"
                             })}
                             className="input input-bordered input-primary w-full max-w-xs" />
-                        {/* {errors.email && <p className='text-error'>{errors.email?.message}</p>} */}
+                        {errors.email && <p className='text-error'>{errors.email?.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">  <span className="label-text  text-black">Password</span> </label>
@@ -34,15 +34,15 @@ const Login = () => {
                                 minLength: { value: 5, message: 'Password must be 5 characters or longer' }
                             })}
                             className="input input-bordered input-primary w-full max-w-xs" />
+                        {errors.password && <p className='text-error'>{errors.password?.message}</p>}
                         <label className="label">  <span className="label-text  text-black">Forget Password</span> </label>
-                        {/* {errors.password && <p className='text-error'>{errors.password?.message}</p>} */}
                     </div>
 
                     <input className='btn btn-accent w-full' value='Login' type="submit" />
                 </form>
                 <p className='mt-2'>New to Create Account <Link className='text-primary ml-2 font-bold' to='/signup'>Create New Account</Link></p>
                 <div className="divider">OR</div>
-                <button class="btn btn-outline btn-primary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
+                <button className="btn btn-outline btn-primary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
 
             </div>
 
