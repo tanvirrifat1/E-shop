@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const SignUp = () => {
-
     const { register, formState: { errors }, handleSubmit } = useForm()
+
+    const { createUser } = useContext(AuthContext)
 
     const handleSignUp = (data) => {
         console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -51,7 +59,7 @@ const SignUp = () => {
                     <p className='mt-2'>Already have an Account <Link className='text-primary' to='/login'>Please Login</Link></p>
                     <div className="divider">OR</div>
                 </form>
-                <button className="btn btn-outline btn-info w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
+                <button className="btn btn-outline btn-secondary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );
