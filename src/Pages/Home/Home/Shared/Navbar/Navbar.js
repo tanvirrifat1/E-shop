@@ -1,18 +1,30 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../../contexts/AuthProvider';
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+
+            })
+            .catch(err => console.log(err))
+    }
 
     const menuItmes = <>
         <li className='font-bold'><Link to='/'>Home</Link></li>
         <li className='font-bold'><Link to='/orders'>Orders</Link></li>
         <li className='font-bold'><Link to='/about'>About</Link></li>
         {user?.uid ?
-            <li className='font-bold'><Link to='/login'>SignOut</Link></li> :
-            <li className='font-bold'><Link to='/login'>Login</Link></li>
+            <>
+                <li className='font-bold'><Link to='/dashboard'>Dashboard</Link></li>
+                <li className='font-bold'><button onClick={handleLogOut}>SignOut</button></li>
+            </>
+            : <li className='font-bold'><Link to='/login'>Login</Link></li>
         }
 
     </>

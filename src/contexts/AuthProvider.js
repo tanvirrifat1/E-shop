@@ -4,7 +4,9 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
-    signInWithEmailAndPassword
+    sendEmailVerification,
+    signInWithEmailAndPassword,
+    signOut
 } from 'firebase/auth'
 
 
@@ -21,6 +23,14 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const logOut = () => {
+        return signOut(auth)
+    }
+
+    const emailVerify = () => {
+        return sendEmailVerification(auth.currentUser)
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user observing');
@@ -32,7 +42,9 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         createUser,
         userLogin,
-        user
+        user,
+        logOut,
+        emailVerify
     }
     return (
         <AuthContext.Provider value={authInfo}>

@@ -8,7 +8,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, emailVerify } = useContext(AuthContext)
 
     const handleSignUp = (data) => {
         console.log(data)
@@ -16,6 +16,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                emailVerify()
             })
             .catch(err => console.log(err))
     }
