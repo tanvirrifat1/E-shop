@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -7,18 +8,39 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
+    const [signUpError, setSignUpError] = useState('')
 
-    const { createUser, emailVerify } = useContext(AuthContext)
+    const { createUser, emailVerify, updateUser, GoogleLogin } = useContext(AuthContext)
 
     const handleSignUp = (data) => {
-        console.log(data)
+        setSignUpError('')
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user
                 console.log(user)
                 emailVerify()
+                toast.success('Successfully User create')
+                const userInfo = {
+                    displayName: data.name,
+                    photoURL: data.photoURL,
+                }
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(err => console.log(err))
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setSignUpError(err.message)
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        GoogleLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(err => console.error(err))
     }
 
     return (
@@ -56,11 +78,11 @@ const SignUp = () => {
                     </div>
 
                     <input className='btn btn-accent w-full mt-4' value='Sign Up' type="submit" />
-                    {/* {signupError && <p className='text-error'>{signupError} </p>} */}
+                    {signUpError && <p className='text-red-600'>{signUpError} </p>}
                     <p className='mt-2'>Already have an Account <Link className='text-primary' to='/login'>Please Login</Link></p>
                     <div className="divider">OR</div>
                 </form>
-                <button className="btn btn-outline btn-secondary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleLogin} className="btn btn-outline btn-secondary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );

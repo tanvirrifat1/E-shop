@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import './Login.css'
 import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
-    const { userLogin } = useContext(AuthContext)
+    const { userLogin, GoogleLogin } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
 
     const handleLogin = data => {
@@ -17,11 +18,22 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                toast.success('Successfully Login')
             })
             .catch(err => {
                 console.log(err.message)
                 setLoginError(err.message)
+                toast.error('Password Wrong')
             })
+    }
+
+    const handleGoogleLogin = () => {
+        GoogleLogin()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(err => console.error(err))
     }
 
     return (
@@ -57,10 +69,9 @@ const Login = () => {
                 </form>
                 <p className='mt-2'>New to Create Account <Link className='text-primary ml-2 font-bold' to='/signup'>Create New Account</Link></p>
                 <div className="divider">OR</div>
-                <button className="btn btn-outline btn-primary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleLogin} className="btn btn-outline btn-primary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
 
             </div>
-
         </div>
     );
 };

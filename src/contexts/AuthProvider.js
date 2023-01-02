@@ -3,15 +3,20 @@ import app from '../firebase/firebase.config';
 import {
     createUserWithEmailAndPassword,
     getAuth,
+    GoogleAuthProvider,
     onAuthStateChanged,
     sendEmailVerification,
     signInWithEmailAndPassword,
-    signOut
+    signInWithPopup,
+    signOut,
+    updateProfile
 } from 'firebase/auth'
 
 
 export const AuthContext = createContext()
 const auth = getAuth(app)
+
+const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
@@ -31,6 +36,14 @@ const AuthProvider = ({ children }) => {
         return sendEmailVerification(auth.currentUser)
     }
 
+    const updateUser = (userInfo) => {
+        return updateProfile(user, userInfo)
+    }
+
+    const GoogleLogin = () => {
+        return signInWithPopup(auth, googleProvider)
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user observing');
@@ -44,7 +57,9 @@ const AuthProvider = ({ children }) => {
         userLogin,
         user,
         logOut,
-        emailVerify
+        emailVerify,
+        updateUser,
+        GoogleLogin
     }
     return (
         <AuthContext.Provider value={authInfo}>
