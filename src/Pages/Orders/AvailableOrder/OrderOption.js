@@ -18,7 +18,7 @@ const OrderOption = ({ option, setTreatment }) => {
                             onClick={() => setTreatment(option)}
                             disabled={slots.length === 0}
                             htmlFor="openModal"
-                            className="btn btn-secondary"
+                            className=" p-4 w-full flex justify-center rounded-xl font-semibold text-white hover:text-white bg-blue-600 hover:bg-green-500"
                         >Buy Now</label>
                     </div>
                 </div>

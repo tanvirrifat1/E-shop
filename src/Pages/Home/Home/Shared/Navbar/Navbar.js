@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     const menuItmes = <>
-        <li className='font-bold'><Link to='/'>Home</Link></li>
+        <li className='font-bold '><Link to='/'>Home</Link></li>
         <li className='font-bold'><Link to='/orders'>Orders</Link></li>
         <li className='font-bold'><Link to='/about'>About</Link></li>
         {user?.uid ?

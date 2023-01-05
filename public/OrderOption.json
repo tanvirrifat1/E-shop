@@ -1,6 +1,5 @@
 [
     {
-      "id":1,
       "name": "Smart Phone",
       "image":"https://i.ibb.co/khw5tPK/smartphone.webp",
       "slots": [
@@ -23,7 +22,6 @@
       ]
     },
     {
-      "id":2,
       "name": "Smart Watch",
       "image":"https://i.ibb.co/gyDNp1y/smartwatch.webp",
       "slots": [
@@ -46,7 +44,6 @@
       ]
     },
     {
-      "id":3,
       "name": "HeadPhone",
       "image":"https://i.ibb.co/Hng6t80/pink-headphones.webp",
       "slots": [
@@ -69,7 +66,6 @@
       ]
     },
     {
-      "id":4,
       "name": "Laptop",
       "image":"https://i.ibb.co/R9MvwLh/laptop.jpg",
       "slots": [
@@ -92,7 +88,6 @@
       ]
     },
     {
-      "id":5,
       "name": "Monitor",
       "image":"https://i.ibb.co/sshQN5g/monitor.webp",
       "slots": [
@@ -115,7 +110,6 @@
       ]
     },
     {
-      "id":6,
       "name": "Camera",
       "image":"https://i.ibb.co/ZSvWC0t/camera.webp",
       "slots": [
@@ -138,7 +132,6 @@
       ]
     },
     {
-      "id":7,
       "name": "Shoe",
       "image":"https://i.ibb.co/d5zsGVm/fashion-shoes.webp",
       "slots": [
@@ -161,7 +154,6 @@
       ]
     },
     {
-      "id":8,
       "name": "Jacket",
       "image":"https://i.ibb.co/mtQ8wrT/jacket.webp",
       "slots": [
@@ -184,7 +176,6 @@
       ]
     },
     {
-      "id":9,
       "name": "Pant",
       "image":"https://i.ibb.co/tx4tFyM/pant.webp",
       "slots": [
@@ -207,7 +198,6 @@
       ]
     },
     {
-      "id":10,
       "name": "Cap",
       "image":"https://i.ibb.co/mDkFHhR/cap.webp",
       "slots": [
@@ -230,7 +220,6 @@
       ]
     },
     {
-      "id":11,
       "name": "Belt",
       "image":"https://i.ibb.co/Ltc7fpj/balt.jpg",
       "slots": [
@@ -253,7 +242,6 @@
       ]
     },
     {
-      "id":12,
       "name": "T-Shirt",
       "image":"https://i.ibb.co/Vvgypz9/t-shirt.webp",
       "slots": [

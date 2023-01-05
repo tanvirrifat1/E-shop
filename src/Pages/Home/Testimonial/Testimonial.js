@@ -11,12 +11,10 @@ import "./Testimonial.css";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-import shoe from '../../../assets/fashion-shoes.webp'
-import jacket from '../../../assets/jacket.webp'
-import pant from '../../../assets/pant.webp'
-import tShirt from '../../../assets/t-shirt.webp'
-import cap from '../../../assets/cap.webp'
-import balt from '../../../assets/balt.jpg'
+import shoe from '../../../assets/People/people1.webp'
+import jacket from '../../../assets/People/people2.webp'
+import pant from '../../../assets/People/people3.jpg'
+import tShirt from '../../../assets/People/people4.webp'
 
 const Testimonial = () => {
     return (
@@ -67,23 +65,6 @@ const Testimonial = () => {
                     </div>
                     <p>A T - shirt(also spelled tee shirt), or tee, is a style of fabric shirt named after the T shape of its body and sleeves.Traditionally, it has short sleeves and a round neckline, known as a crew neck, which lacks a collar.T - shirts are generally made of a stretchy, light, and inexpensive fabric and are easy to clean.The T - shirt evolved from undergarments used in the 19th century and, in the mid - 20th century, transitioned from undergarment to general - use casual clothing.</p>
                 </div></SwiperSlide>
-                <SwiperSlide><div>
-                    <div className="avatar">
-                        <div className="w-24 rounded-full">
-                            <img src={cap} />
-                        </div>
-                    </div>
-                    <p>Caps typically have a visor, or no brim at all. They are popular in casual and informal settings, and are seen in sports and fashion. They are typically designed for warmth, and often incorporate a visor to block sunlight from the eyes. They come in many shapes, sizes, and are of different brands.</p>
-                </div></SwiperSlide>
-                <SwiperSlide><div>
-                    <div className="avatar">
-                        <div className="w-24 rounded-full">
-                            <img src={balt} />
-                        </div>
-                    </div>
-                    <p>A belt is a loop of flexible material used to link two or more rotating shafts mechanically, most often parallel. Belts may be used as a source of motion, to transmit power efficiently or to track relative movement.</p>
-                </div></SwiperSlide>
-
             </Swiper>
         </div>
     );

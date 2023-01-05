@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
-import { ProgressBar } from 'react-loader-spinner'
+import { Circles } from 'react-loader-spinner'
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
@@ -10,14 +10,14 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         return <div className='flex justify-center mt-32'>
-            <ProgressBar
+            <Circles
                 height="80"
                 width="80"
-                ariaLabel="progress-bar-loading"
+                color="#4fa94d"
+                ariaLabel="circles-loading"
                 wrapperStyle={{}}
-                wrapperClass="progress-bar-wrapper"
-                borderColor='#F4442E'
-                barColor='#51E5FF'
+                wrapperClass=""
+                visible={true}
             />
         </div>
     }

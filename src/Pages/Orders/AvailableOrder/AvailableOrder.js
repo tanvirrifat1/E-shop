@@ -1,17 +1,20 @@
+import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import BookingModal from '../BookingModal/BookingModal';
 import OrderOption from './OrderOption';
 
 const AvailableOrder = ({ selectedDate }) => {
-    const [orderOptions, setOrderOPtions] = useState([])
     const [treatment, setTreatment] = useState(null)
 
-    useEffect(() => {
-        fetch('OrderOption.json')
-            .then(res => res.json())
-            .then(data => setOrderOPtions(data))
-    }, [])
+    const { data: orderOptions = [] } = useQuery({
+        queryKey: ['orderOptions'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/OrderOptions')
+            const data = await res.json();
+            return data
+        }
+    })
 
     return (
         <div className='my-16'>

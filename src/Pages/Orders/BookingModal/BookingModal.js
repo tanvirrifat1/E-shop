@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import React from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
     const { name, image, slots } = treatment
@@ -23,7 +23,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
             phone
         }
         console.log(booking)
-        toast.success('Done')
+        toast.success("Order Done")
         setTreatment(null)
     }
 

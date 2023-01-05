@@ -1,6 +1,5 @@
 import shop from '../../../assets/E-shop.webp'
 import { DayPicker } from 'react-day-picker';
-import { format } from 'date-fns';
 
 
 const OrderBanner = ({ selectedDate, setSelectedDate }) => {
