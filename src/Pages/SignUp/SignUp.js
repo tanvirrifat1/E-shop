@@ -2,15 +2,16 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
     const [signUpError, setSignUpError] = useState('')
-
     const { createUser, emailVerify, updateUser, GoogleLogin } = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const handleSignUp = (data) => {
         setSignUpError('')
@@ -25,7 +26,9 @@ const SignUp = () => {
                     photoURL: data.photoURL,
                 }
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        navigate('/')
+                    })
                     .catch(err => console.log(err))
             })
             .catch(err => {
