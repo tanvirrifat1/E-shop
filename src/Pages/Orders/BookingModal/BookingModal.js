@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
-const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
-    const { name, image, slots } = treatment
+const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
+    const { name: userName, image, slots } = treatment
     const date = format(selectedDate, 'PP')
 
     const { user } = useContext(AuthContext)
@@ -19,7 +19,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
 
         const booking = {
             orderDate: date,
-            product: name,
+            product: userName,
             userName: name,
             slot,
             email,
@@ -36,10 +36,12 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                setTreatment(null)
-                toast.success("Order Done")
+                if (data.acknowledged) {
+                    setTreatment(null)
+                    toast.success("Order Confirmed")
+                    refetch()
+                }
             })
-
     }
 
     return (
@@ -48,7 +50,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="openModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className=" font-bold text-xl" name='item'>{name}</h3>
+                    <h3 className=" font-bold text-xl" name='item'>{userName}</h3>
 
                     <form onSubmit={handleBooking}>
                         <div className="avatar flex justify-center">

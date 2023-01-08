@@ -1,20 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
 import React, { useState } from 'react';
+import Loading from '../../Shared/Loading/Loading';
 import BookingModal from '../BookingModal/BookingModal';
 import OrderOption from './OrderOption';
 
 const AvailableOrder = ({ selectedDate }) => {
     const [treatment, setTreatment] = useState(null)
 
-    const { data: orderOptions = [] } = useQuery({
-        queryKey: ['orderOptions'],
+    const date = format(selectedDate, 'PP')
+
+    const { data: orderOptions = [], refetch, isLoading } = useQuery({
+        queryKey: ['orderOptions', date],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/OrderOptions')
+            const res = await fetch(`http://localhost:5000/OrderOptions?date=${date}`)
             const data = await res.json();
             return data
         }
     })
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='my-16'>
@@ -32,6 +39,7 @@ const AvailableOrder = ({ selectedDate }) => {
                     selectedDate={selectedDate}
                     treatment={treatment}
                     setTreatment={setTreatment}
+                    refetch={refetch}
                 ></BookingModal>
             }
         </div>
