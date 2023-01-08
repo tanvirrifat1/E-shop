@@ -4,12 +4,13 @@ import { toast } from 'react-hot-toast';
 import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Loading from '../Shared/Loading/Loading';
 
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
     const [signUpError, setSignUpError] = useState('')
-    const { createUser, emailVerify, updateUser, GoogleLogin } = useContext(AuthContext)
+    const { createUser, emailVerify, updateUser, GoogleLogin, loading } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -44,6 +45,10 @@ const SignUp = () => {
                 console.log(user)
             })
             .catch(err => console.error(err))
+    }
+
+    if (loading) {
+        return <Loading></Loading>
     }
 
     return (

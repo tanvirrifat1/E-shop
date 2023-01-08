@@ -5,10 +5,11 @@ import { FaGoogle } from "react-icons/fa";
 import './Login.css'
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
-    const { userLogin, GoogleLogin } = useContext(AuthContext)
+    const { userLogin, GoogleLogin, loading } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
 
     const location = useLocation();
@@ -41,6 +42,10 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(err => console.error(err))
+    }
+
+    if (loading) {
+        return <Loading></Loading>
     }
 
     return (
