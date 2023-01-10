@@ -14,6 +14,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
         const form = event.target;
         const slot = form.slot.value;
         const name = form.name.value;
+        const image = form.image.value;
         const email = form.email.value;
         const phone = form.phone.value;
 
@@ -21,6 +22,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
             orderDate: date,
             product: userName,
             userName: name,
+            image: image,
             slot,
             email,
             phone
@@ -58,7 +60,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
                     <form onSubmit={handleBooking}>
                         <div className="avatar flex justify-center">
                             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src={image} alt="" />
+                                <img name='image' src={image} alt="" />
                             </div>
                         </div>
                         <input type="text" value={date} readOnly className="input input-bordered input-primary mt-4 w-full" />

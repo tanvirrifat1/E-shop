@@ -4,7 +4,7 @@ import './OrderOption.css'
 const OrderOption = ({ option, setTreatment }) => {
     const { name, slots, image } = option
     return (
-        <div>
+        <div className='p-4'>
             <div className="card shadow-xl ">
                 <div className='flex justify-center p-6'>
                     <h2 className="card-title text-2xl">{name}</h2>
