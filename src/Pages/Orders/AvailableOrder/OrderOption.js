@@ -7,7 +7,7 @@ const OrderOption = ({ option, setTreatment }) => {
         <div>
             <div className="card shadow-xl ">
                 <div className='flex justify-center p-6'>
-                    <h2 className="card-title text-2xl text-primary">{name}</h2>
+                    <h2 className="card-title text-2xl">{name}</h2>
                 </div>
                 <figure className='size'><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
