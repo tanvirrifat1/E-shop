@@ -36,7 +36,7 @@ const MyOrders = () => {
                     <tbody>
 
                         {bookings?.map((book, i) =>
-                            <tr >
+                            <tr key={book._id}>
                                 <div className="avatar">
                                     <div className="mask mask-squircle w-12 h-12">
                                         <img src={book.image} alt="Avatar Tailwind CSS Component" />

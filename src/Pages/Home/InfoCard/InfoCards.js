@@ -56,9 +56,11 @@ const InfoCards = () => {
     ]
 
     return (
-        <div>
+        <div >
             <h1 className='text-4xl text-center mt-8 '>Here is all Tech Product Demo</h1>
-            <div className='grid mt-16 gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid mt-16 gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3' data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500">
 
                 {
                     cardData.map(card => <InfoCard

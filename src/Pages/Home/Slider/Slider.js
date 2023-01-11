@@ -22,7 +22,8 @@ import img6 from '../../../assets/slider/bag.webp'
 
 const Slider = () => {
     return (
-        <div>
+        <div
+        >
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
