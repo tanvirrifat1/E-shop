@@ -14,7 +14,6 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
         const form = event.target;
         const slot = form.slot.value;
         const name = form.name.value;
-        const image = form.image.value;
         const email = form.email.value;
         const phone = form.phone.value;
 
@@ -22,11 +21,12 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
             orderDate: date,
             product: userName,
             userName: name,
-            image: image,
+            image,
             slot,
             email,
             phone
         }
+        console.log(booking)
 
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -55,12 +55,12 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="openModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className=" font-bold text-xl" name='item'>{userName}</h3>
+                    <h3 className=" font-bold text-xl" >{userName}</h3>
 
                     <form onSubmit={handleBooking}>
                         <div className="avatar flex justify-center">
                             <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img name='image' src={image} alt="" />
+                                <img src={image} alt="" />
                             </div>
                         </div>
                         <input type="text" value={date} readOnly className="input input-bordered input-primary mt-4 w-full" />

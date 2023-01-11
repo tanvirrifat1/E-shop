@@ -39,7 +39,7 @@ const MyOrders = () => {
                             <tr >
                                 <div className="avatar">
                                     <div className="mask mask-squircle w-12 h-12">
-                                        <img src="https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?size=626&ext=jpg&uid=R83218281&ga=GA1.1.1908891225.1665030381&semt=sph" alt="Avatar Tailwind CSS Component" />
+                                        <img src={book.image} alt="Avatar Tailwind CSS Component" />
                                     </div>
                                 </div>
                                 <th>{i + 1}</th>

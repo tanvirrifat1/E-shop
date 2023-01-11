@@ -2,7 +2,7 @@ import React from 'react';
 import './OrderOption.css'
 
 const OrderOption = ({ option, setTreatment }) => {
-    const { name, slots, image } = option
+    const { name, slots, image } = option;
     return (
         <div className='p-4'>
             <div className="card shadow-xl ">
