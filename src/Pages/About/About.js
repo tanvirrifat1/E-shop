@@ -1,14 +1,15 @@
 import React from 'react';
 
-import img from '../../assets/about/phone.webp'
-import img1 from '../../assets/about/Email3.png'
+import img from '../../assets/about/email.jpg'
+import img1 from '../../assets/about/messenger.jpg'
+import img2 from '../../assets/about/whatsapp.jpg'
 
 const About = () => {
     return (
         <div>
             <div>
                 <div>
-                    <section className=" mt-6 bg-base-200">
+                    <section className=" mt-6 ">
                         <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
                             <h2 className="text-2xl font-semibold sm:text-4xl flex justify-center">FAQ</h2>
                             <div className="space-y-4 text-xl rounded-xl">
@@ -36,47 +37,94 @@ const About = () => {
                     <section className="py-6 ">
                         <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                             <div>
-                                <div className="card w-96 bg-base-100 shadow-xl">
-                                    <div className="card-body">
-                                        <div className=''>
-                                            <h4 className='text-xl'>Phone</h4>
-                                            <p className='mt-2'>+91 0215641564</p>
-                                            <div className="card-actions justify-end">
-                                                <img className='h-32 w-32' src={img} alt="" />
-                                            </div>
-                                        </div>
+                                <article
+                                    style={{
+                                        backgroundColor: '#16a085',
+                                    }}
+                                    className="bg-slate-900 p-5 md:w-8/12 sm:w-full  rounded-2xl 
+                                     text-center border-red-300 text-white"
+                                >
+                                    <div className='flex justify-center'>
+                                        <img className='w-12 h-12 ' src={img} alt="" />
                                     </div>
-                                </div>
-                                <div className="card w-96 bg-base-100 shadow-xl mt-2">
-                                    <div className="card-body">
-                                        <div className=''>
-                                            <h4 className='text-xl'>Email</h4>
-                                            <p className='mt-2'>tom@gmail.com</p>
-                                            <div className="card-actions justify-end">
-                                                <img className='h-32 w-32' src={img1} alt="" />
-                                            </div>
-                                        </div>
+                                    <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
+                                    <h4>Email</h4>
+                                    <h5>Company@gmail.com</h5>
+                                    <a
+                                        href="#"
+                                    >
+                                        Send a message
+                                    </a>
+                                </article>
+                                <article
+                                    style={{
+                                        backgroundColor: '#16a085',
+                                    }}
+                                    className="bg-slate-900 p-5 md:w-8/12 sm:w-full mt-4 rounded-2xl 
+                                     text-center border-red-300 text-white"
+                                >
+                                    <div className='flex justify-center'>
+                                        <img className='w-12 h-12 ' src={img1} alt="" />
                                     </div>
-                                </div>
+                                    <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
+                                    <h4>Messenger</h4>
+                                    <h5>HR</h5>
+                                    <a
+                                        href="#"
+                                    >
+                                        Send a message
+                                    </a>
+                                </article>
+                                <article
+                                    style={{
+                                        backgroundColor: '#16a085',
+                                    }}
+                                    className="bg-slate-900 p-5 md:w-8/12 sm:w-full mt-4 rounded-2xl 
+                                     text-center border-red-300 text-white"
+                                >
+                                    <div className='flex justify-center'>
+                                        <img className='w-12 h-12 ' src={img2} alt="" />
+                                    </div>
+                                    <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
+                                    <h4>WhatsApp</h4>
+                                    <h5>Company Number</h5>
+                                    <a
+                                        href="#"
+                                    >
+                                        Send a message
+                                    </a>
+                                </article>
                             </div>
-                            <form novalidate="" className="space-y-6 ng-untouched ng-pristine ng-valid">
-                                <div>
-                                    <label for="name" className="text-sm">name</label>
-                                    <input id="name" type="text" placeholder="" className="w-full p-3 rounded" />
-                                </div>
-                                <div>
-                                    <label for="email" className="text-sm">Email</label>
-                                    <input id="email" type="email" className="w-full p-3 rounded" />
-                                </div>
-                                <div>
-                                    <label for="phone" className="text-sm">Phone</label>
-                                    <input id="phone" type="number" className="w-full p-3 rounded" />
-                                </div>
-                                <div>
-                                    <label for="message" className="text-sm">Message</label>
-                                    <textarea id="message" rows="3" className="w-full p-3 rounded"></textarea>
-                                </div>
-                                <button className="btn  btn-primary w-full">send your message </button>
+                            <form
+                                data-aos="fade-up"
+                                data-aos-duration="1500"
+                                className="flex flex-col gap-5 text-black"
+                            >
+                                <input
+                                    type="text"
+                                    name="user_name"
+                                    placeholder="Your Full Name"
+                                    required
+                                    className="w-full p-6 bg-transparent border-2 resize-none text-black "
+                                />
+                                <input
+                                    type="text"
+                                    name="user_email"
+                                    placeholder="Your Email"
+                                    required
+                                    className="w-full p-6 bg-transparent border-2 resize-none text-black "
+                                />
+                                <textarea
+
+                                    name="message"
+                                    rows="7"
+                                    placeholder="Your Message"
+                                    required
+                                    className="w-full p-6 bg-transparent border-2 resize-none text-black "
+                                ></textarea>
+                                <button type="submit" value="Send" className="btn text-white btn-outline w-full bg-green-600 rounded-lg">
+                                    Send Message
+                                </button>
                             </form>
                         </div>
                     </section>

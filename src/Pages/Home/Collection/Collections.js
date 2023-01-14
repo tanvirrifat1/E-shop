@@ -53,9 +53,8 @@ const Collections = () => {
             <div >
                 <h1 className='text-4xl text-center mt-12'>Here is all cloth Product Demo</h1>
             </div>
-            <div className='grid mt-16 gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-                data-aos="zoom-in-up"
-                data-aos-duration="2000">
+            <div className='grid mt-16 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+            >
                 {clothData.map(cloth => <Collection
                     key={cloth.id}
                     cloth={cloth}

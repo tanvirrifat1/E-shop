@@ -24,7 +24,7 @@ const AvailableOrder = ({ selectedDate }) => {
     }
 
     return (
-        <div className='my-16' data-aos="zoom-in" data-aos-duration="3000">
+        <div className='my-16' >
             <p className='text-center text-primary font-bold text-xl '>Please Selected Your Available Order Date : {format(selectedDate, 'PP')}</p>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8'>
                 {orderOptions.map(option => <OrderOption

@@ -23,6 +23,8 @@ import img6 from '../../../assets/slider/bag.webp'
 const Slider = () => {
     return (
         <div
+            data-aos="fade-down"
+            data-aos-duration="3000"
         >
             <Swiper
                 slidesPerView={3}
