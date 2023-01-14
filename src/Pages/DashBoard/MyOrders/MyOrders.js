@@ -17,7 +17,7 @@ const MyOrders = () => {
     })
 
     return (
-        <div>
+        <div className='ml-3'>
             <h3 className='text-3xl  mb-6'>My Orders</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-xl">

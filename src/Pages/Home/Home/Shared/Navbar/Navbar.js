@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     const menuItmes = <>
-        <li className='font-bold '><Link to='/'>Home</Link></li>
+        {/* <li className='font-bold '><Link to='/'>Home</Link></li> */}
         {/* <li className='font-bold'><Link to='/orders'>Orders</Link></li> */}
         {/* <li className='font-bold'><Link to='/about'>About</Link></li> */}
         {user?.uid ?
@@ -26,7 +26,7 @@ const Navbar = () => {
             : <li className='font-bold'><Link to='/login'>Login</Link></li>
         }
         {user?.displayName ?
-            <p className='py-4 font-semibold text-green-700 mr-2'>Welcome {user?.displayName} </p>
+            <p className='py-4 font-semibold text-black mr-2'>Welcome {user?.displayName} </p>
             :
             <></>
         }
@@ -42,7 +42,12 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100 flex justify-between rounded-xl">
+
+            <div
+                style={{
+                    backgroundColor: '#16a085',
+                }}
+                className="navbar my-6 text-white flex justify-between rounded-xl">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

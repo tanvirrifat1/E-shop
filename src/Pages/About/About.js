@@ -10,6 +10,7 @@ const About = () => {
             <div>
                 <div>
                     <section className=" mt-6 ">
+
                         <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
                             <h2 className="text-2xl font-semibold sm:text-4xl flex justify-center">FAQ</h2>
                             <div className="space-y-4 text-xl rounded-xl">
@@ -35,6 +36,7 @@ const About = () => {
                 </div>
                 <div>
                     <section className="py-6 ">
+                        <h1 className='text-3xl font-semibold text-center my-6'>Contact us</h1>
                         <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                             <div>
                                 <article
