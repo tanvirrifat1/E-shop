@@ -6,7 +6,7 @@ const OrderOption = ({ option, setTreatment }) => {
     return (
         <div className='p-4 rounded-xl' data-aos="zoom-in" data-aos-duration="3000">
             <div className="card shadow-xl Style-box">
-                <figure className='size'><img src={image} alt="Shoes" /></figure>
+                <figure className='h-[300px]'><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <p className='text-center'>{slots.length > 0 ? slots[0] : "Try another day"}</p>
                     <p className='text-center'>{slots.length} {slots.length > 1 ? "spaces" : "space"} Available</p>

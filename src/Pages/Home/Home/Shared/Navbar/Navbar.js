@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../../contexts/AuthProvider';
+import img from '../../../../../assets/login/E-Shop.webp'
 
 const Navbar = () => {
 
@@ -47,7 +48,7 @@ const Navbar = () => {
                 style={{
                     backgroundColor: '#16a085',
                 }}
-                className="navbar my-6 text-white flex justify-between rounded-xl">
+                className="navbar text-white flex justify-between p-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -57,7 +58,9 @@ const Navbar = () => {
                             {menuItmes}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">E-Shop</Link>
+
+                    <Link to='/' className="btn btn-ghost normal-case"><img className='w-12 h-12' src={img} alt="" /> </Link>
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

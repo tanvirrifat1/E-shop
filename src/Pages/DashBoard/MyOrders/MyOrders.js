@@ -18,14 +18,14 @@ const MyOrders = () => {
 
     return (
         <div className='ml-3'>
-            <h3 className='text-3xl  mb-6'>My Orders</h3>
+            <h3 className='text-3xl text-center font-semibold my-5 mb-6'>My Orders</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-xl">
 
                     <thead>
                         <tr>
-                            <th>Image</th>
                             <th></th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Product</th>
                             <th>Date</th>
@@ -36,13 +36,14 @@ const MyOrders = () => {
                     <tbody>
 
                         {bookings?.map((book, i) =>
-                            <tr key={book._id}>
-                                <div className="avatar">
+                            <tr className='bg-white' key={book._id}>
+                                <th>{i + 1}</th>
+                                <div className="avatar ">
                                     <div className="mask mask-squircle w-12 h-12">
                                         <img src={book.image} alt="Avatar Tailwind CSS Component" />
                                     </div>
                                 </div>
-                                <th>{i + 1}</th>
+
                                 <td>{book.userName}</td>
                                 <td>{book.product}</td>
                                 <td>{book.orderDate}</td>

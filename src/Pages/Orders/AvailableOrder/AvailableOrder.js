@@ -24,24 +24,26 @@ const AvailableOrder = ({ selectedDate }) => {
     }
 
     return (
-        <div className='my-16' >
-            <p className='text-center text-primary font-bold text-xl '>Please Selected Your Available Order Date : {format(selectedDate, 'PP')}</p>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8'>
-                {orderOptions.map(option => <OrderOption
-                    key={option._id}
-                    option={option}
-                    setTreatment={setTreatment}
-                ></OrderOption>)}
+        <div className='container mx-auto'>
+            <div className='my-16' >
+                <p className='text-center text-primary font-bold text-xl '>Please Selected Your Available Order Date : {format(selectedDate, 'PP')}</p>
+                <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8'>
+                    {orderOptions.map(option => <OrderOption
+                        key={option._id}
+                        option={option}
+                        setTreatment={setTreatment}
+                    ></OrderOption>)}
+                </div>
+                {
+                    treatment &&
+                    <BookingModal
+                        selectedDate={selectedDate}
+                        treatment={treatment}
+                        setTreatment={setTreatment}
+                        refetch={refetch}
+                    ></BookingModal>
+                }
             </div>
-            {
-                treatment &&
-                <BookingModal
-                    selectedDate={selectedDate}
-                    treatment={treatment}
-                    setTreatment={setTreatment}
-                    refetch={refetch}
-                ></BookingModal>
-            }
         </div>
     );
 };
