@@ -10,7 +10,11 @@ const MyOrders = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url)
+            const res = await fetch(url, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json()
             return data;
         }
@@ -30,7 +34,7 @@ const MyOrders = () => {
                             <th>Product</th>
                             <th>Date</th>
                             <th>Time</th>
-                            <th></th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +52,7 @@ const MyOrders = () => {
                                 <td>{book.product}</td>
                                 <td>{book.orderDate}</td>
                                 <td>{book.slot}</td>
+                                <td>{book.price}</td>
                             </tr>)}
 
                     </tbody>

@@ -4,9 +4,9 @@ import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
-    const { name: userName, image, slots } = treatment
+    const { name: userName, image, slots, price } = treatment
     const date = format(selectedDate, 'PP')
-
+    console.log(treatment)
     const { user } = useContext(AuthContext)
 
     const handleBooking = event => {
@@ -22,6 +22,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
             product: userName,
             userName: name,
             image,
+            price,
             slot,
             email,
             phone
@@ -63,6 +64,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
                                 <img src={image} alt="" />
                             </div>
                         </div>
+                        <p className='text-center font-semibold my-6'>{price}</p>
                         <input type="text" value={date} readOnly className="input input-bordered input-primary mt-4 w-full" />
                         <select name='slot' className="select w-full input-primary mt-3">
                             {

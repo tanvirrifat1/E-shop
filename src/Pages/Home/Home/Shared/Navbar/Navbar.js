@@ -16,15 +16,15 @@ const Navbar = () => {
     }
 
     const menuItmes = <>
-        {/* <li className='font-bold '><Link to='/'>Home</Link></li> */}
-        {/* <li className='font-bold'><Link to='/orders'>Orders</Link></li> */}
-        {/* <li className='font-bold'><Link to='/about'>About</Link></li> */}
+        {/* <li className='font-bold  '><Link to='/'>Home</Link></li> */}
+        {/* <li className='font-bold '><Link to='/orders'>Orders</Link></li> */}
+        {/* <li className='font-bold '><Link to='/about'>About</Link></li> */}
         {user?.uid ?
             <>
-                <li className='font-bold'><Link to='/dashboard'>Dashboard</Link></li>
-                <li className='font-bold'><button onClick={handleLogOut}>SignOut</button></li>
+                <li className='font-bold '><Link to='/dashboard'>Dashboard</Link></li>
+                <li className='font-bold '><button onClick={handleLogOut}>SignOut</button></li>
             </>
-            : <li className='font-bold'><Link to='/login'>Login</Link></li>
+            : <li className='font-bold '><Link to='/login'>Login</Link></li>
         }
         {user?.displayName ?
             <p className='py-4 font-semibold text-black mr-2'>Welcome {user?.displayName} </p>
