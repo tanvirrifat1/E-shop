@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Loading from '../Shared/Loading/Loading';
 import img from '../../assets/login/signIn.webp'
+import useToken from '../../Hooks/useToken';
 
 
 const SignUp = () => {
@@ -13,7 +14,13 @@ const SignUp = () => {
     const [signUpError, setSignUpError] = useState('')
     const { createUser, emailVerify, updateUser, GoogleLogin, loading } = useContext(AuthContext)
 
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmail)
     const navigate = useNavigate()
+
+    if (token) {
+        navigate('/')
+    }
 
     const handleSignUp = (data) => {
         setSignUpError('')
@@ -61,20 +68,11 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                getUserToken(email)
+                setCreatedUserEmail(email)
             })
     }
 
-    const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.accessToken) {
-                    localStorage.setItem('accessToken', data.accessToken)
-                    navigate('/')
-                }
-            })
-    }
+
 
     if (loading) {
         return <Loading></Loading>
