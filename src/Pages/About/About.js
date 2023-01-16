@@ -1,10 +1,34 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
 import img from '../../assets/about/email.jpg'
 import img1 from '../../assets/about/messenger.jpg'
 import img2 from '../../assets/about/whatsapp.jpg'
 
+// import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-hot-toast';
+
 const About = () => {
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            process.env.REACT_APP_SERVICE,
+            process.env.REACT_APP_TEMPLETE,
+            form.current,
+            process.env.REACT_APP_ABOUT)
+            .then((result) => {
+                console.log(result.text);
+                console.log('message send')
+            }, (error) => {
+                console.log(error.text);
+            });
+        toast.success('Message Sent successfully', { autoClose: 1000 })
+        e.target.reset()
+    };
+
     return (
         <div>
             <div>
@@ -43,18 +67,17 @@ const About = () => {
                                     style={{
                                         backgroundColor: '#16a085',
                                     }}
-                                    className="bg-slate-900 p-5 md:w-8/12 sm:w-full  rounded-2xl 
+                                    className="bg-slate-900 p-2 md:w-8/12 sm:w-full  rounded-2xl 
                                      text-center border-red-300 text-white"
                                 >
                                     <div className='flex justify-center'>
                                         <img className='w-12 h-12 ' src={img} alt="" />
                                     </div>
+
                                     <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                     <h4>Email</h4>
                                     <h5>Company@gmail.com</h5>
-                                    <a
-                                        href="#"
-                                    >
+                                    <a href="#">
                                         Send a message
                                     </a>
                                 </article>
@@ -62,7 +85,7 @@ const About = () => {
                                     style={{
                                         backgroundColor: '#16a085',
                                     }}
-                                    className="bg-slate-900 p-5 md:w-8/12 sm:w-full mt-4 rounded-2xl 
+                                    className="bg-slate-900 p-2 md:w-8/12 sm:w-full mt-4 rounded-2xl 
                                      text-center border-red-300 text-white"
                                 >
                                     <div className='flex justify-center'>
@@ -71,9 +94,7 @@ const About = () => {
                                     <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                     <h4>Messenger</h4>
                                     <h5>HR</h5>
-                                    <a
-                                        href="#"
-                                    >
+                                    <a href="#">
                                         Send a message
                                     </a>
                                 </article>
@@ -81,7 +102,7 @@ const About = () => {
                                     style={{
                                         backgroundColor: '#16a085',
                                     }}
-                                    className="bg-slate-900 p-5 md:w-8/12 sm:w-full mt-4 rounded-2xl 
+                                    className="bg-slate-900 p-2 md:w-8/12 sm:w-full mt-4 rounded-2xl 
                                      text-center border-red-300 text-white"
                                 >
                                     <div className='flex justify-center'>
@@ -90,9 +111,7 @@ const About = () => {
                                     <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                     <h4>WhatsApp</h4>
                                     <h5>Company Number</h5>
-                                    <a
-                                        href="#"
-                                    >
+                                    <a href="#">
                                         Send a message
                                     </a>
                                 </article>
@@ -100,29 +119,27 @@ const About = () => {
                             <form
                                 data-aos="fade-up"
                                 data-aos-duration="1500"
-                                className="flex flex-col gap-5 text-black"
+                                className="flex flex-col gap-2  text-black"
+                                ref={form} onSubmit={sendEmail}
                             >
                                 <input
                                     type="text"
                                     name="user_name"
-                                    placeholder="Your Full Name"
-                                    required
-                                    className="w-full p-6 bg-transparent border-2 resize-none text-black "
+                                    placeholder="Enter your name"
+                                    className="w-full p-6 bg-transparent border-2 border-black  text-black "
                                 />
                                 <input
                                     type="text"
                                     name="user_email"
-                                    placeholder="Your Email"
+                                    placeholder="Enter your email"
                                     required
-                                    className="w-full p-6 bg-transparent border-2 resize-none text-black "
+                                    className="w-full p-6 bg-transparent border-2 border-black  text-black "
                                 />
                                 <textarea
-
                                     name="message"
-                                    rows="7"
-                                    placeholder="Your Message"
-                                    required
-                                    className="w-full p-6 bg-transparent border-2 resize-none text-black "
+                                    placeholder="Enter your message"
+                                    rows="10"
+                                    className="w-full p-6 bg-transparent border-2 border-black  text-black "
                                 ></textarea>
                                 <button type="submit" value="Send" className="btn text-white btn-outline w-full bg-green-600 rounded-lg">
                                     Send Message
