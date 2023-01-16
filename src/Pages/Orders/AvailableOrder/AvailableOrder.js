@@ -1,12 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
 import BookingModal from '../BookingModal/BookingModal';
 import OrderOption from './OrderOption';
 
 const AvailableOrder = ({ selectedDate }) => {
     const [treatment, setTreatment] = useState(null)
+
+    const { user } = useContext(AuthContext)
 
     const date = format(selectedDate, 'PP')
 
@@ -35,14 +39,28 @@ const AvailableOrder = ({ selectedDate }) => {
                         setTreatment={setTreatment}
                     ></OrderOption>)}
                 </div>
-                {
-                    treatment &&
-                    <BookingModal
-                        selectedDate={selectedDate}
-                        treatment={treatment}
-                        setTreatment={setTreatment}
-                        refetch={refetch}
-                    ></BookingModal>
+                {user?.email ?
+                    <div>
+                        {
+                            treatment &&
+                            <BookingModal
+                                selectedDate={selectedDate}
+                                treatment={treatment}
+                                setTreatment={setTreatment}
+                                refetch={refetch}
+                            ></BookingModal>
+                        }
+                    </div>
+                    : toast('Please Login Fast',
+                        {
+                            icon: '👏',
+                            style: {
+                                borderRadius: '10px',
+                                background: '#333',
+                                color: '#fff',
+                            },
+                        }
+                    )
                 }
             </div>
         </div>

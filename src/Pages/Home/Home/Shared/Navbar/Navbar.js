@@ -10,24 +10,24 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { toast.success('LogOut Successfully') })
+            .then(() => { toast.error('LogOut Successfully') })
 
             .catch(err => console.log(err))
     }
 
     const menuItmes = <>
-        {/* <li className='font-bold  '><Link to='/'>Home</Link></li> */}
-        {/* <li className='font-bold '><Link to='/orders'>Orders</Link></li> */}
-        {/* <li className='font-bold '><Link to='/about'>About</Link></li> */}
+        <li className='font-bold text-[18px] lg:hidden '><Link to='/'>Home</Link></li>
+        {/* <li className='font-bold text-[18px] '><Link to='/orders'>Orders</Link></li> */}
+        {/* <li className='font-bold text-[18px] '><Link to='/about'>About</Link></li> */}
         {user?.uid ?
             <>
-                <li className='font-bold '><Link to='/dashboard'>Dashboard</Link></li>
-                <li className='font-bold '><button onClick={handleLogOut}>SignOut</button></li>
+                <li className='font-bold text-[18px] '><Link to='/dashboard'>Dashboard</Link></li>
+                <li className='font-bold text-[18px] '><button onClick={handleLogOut}>SignOut</button></li>
             </>
-            : <li className='font-bold '><Link to='/login'>Login</Link></li>
+            : <li className='font-bold text-[18px] '><Link to='/login'>Login</Link></li>
         }
         {user?.displayName ?
-            <p className='py-4 font-semibold text-black mr-2'>Welcome {user?.displayName} </p>
+            <p className='py-4 font-semibold text-[18px] text-purple-600 mr-2'>Welcome {user?.displayName} </p>
             :
             <></>
         }
@@ -54,7 +54,7 @@ const Navbar = () => {
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={1} className="menu bg-black menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52">
                             {menuItmes}
                         </ul>
                     </div>

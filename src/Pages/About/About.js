@@ -71,7 +71,7 @@ const About = () => {
                                      text-center border-red-300 text-white"
                                 >
                                     <div className='flex justify-center'>
-                                        <img className='w-12 h-12 ' src={img} alt="" />
+                                        <img className='w-12 h-12 rounded-full ' src={img} alt="" />
                                     </div>
 
                                     <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
@@ -89,7 +89,7 @@ const About = () => {
                                      text-center border-red-300 text-white"
                                 >
                                     <div className='flex justify-center'>
-                                        <img className='w-12 h-12 ' src={img1} alt="" />
+                                        <img className='w-12 h-12 rounded-full ' src={img1} alt="" />
                                     </div>
                                     <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                     <h4>Messenger</h4>
@@ -106,7 +106,7 @@ const About = () => {
                                      text-center border-red-300 text-white"
                                 >
                                     <div className='flex justify-center'>
-                                        <img className='w-12 h-12 ' src={img2} alt="" />
+                                        <img className='w-12 h-12 rounded-full ' src={img2} alt="" />
                                     </div>
                                     <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                     <h4>WhatsApp</h4>
@@ -124,6 +124,7 @@ const About = () => {
                             >
                                 <input
                                     type="text"
+
                                     name="user_name"
                                     placeholder="Enter your name"
                                     className="w-full p-6 bg-transparent border-2 border-black  text-black "
@@ -139,6 +140,7 @@ const About = () => {
                                     name="message"
                                     placeholder="Enter your message"
                                     rows="10"
+                                    required
                                     className="w-full p-6 bg-transparent border-2 border-black  text-black "
                                 ></textarea>
                                 <button type="submit" value="Send" className="btn text-white btn-outline w-full bg-green-600 rounded-lg">

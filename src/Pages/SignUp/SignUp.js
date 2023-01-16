@@ -52,6 +52,9 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                saveUser(user.displayName, user?.email);
+                // navigate('/')
+                setCreatedUserEmail(user.email)
             })
             .catch(err => console.error(err))
     }
