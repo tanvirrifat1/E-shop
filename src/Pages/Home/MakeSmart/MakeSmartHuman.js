@@ -10,8 +10,8 @@ const MakeSmartHuman = () => {
             }}
         >
             <div className="hero p-10 text-white mt-10">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <img src={Shope} className=" rounded-lg lg:w-1/2 shadow-2xl" alt='' />
+                <div className="hero-content flex-col lg:flex-row-reverse ">
+                    <img src={Shope} className=" rounded-lg lg:w-1/2 shadow-2xl hover:scale-110 transition duration-300 ease-in-out" alt='' />
                     <div>
                         <h1 className="text-5xl font-bold">About E-shop</h1>
                         <p className="py-6">An e-shop is an online business that sells a variety of goods and services. E-shops are business-to-consumer oriented. They are just like a retail store but instead of having a physical location, its location is on the internet.</p>
