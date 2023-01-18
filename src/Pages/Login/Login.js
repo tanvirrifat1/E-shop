@@ -50,7 +50,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 setLoginUserEmail(user?.email)
-                navigate(from, { replace: true })
+                // navigate(from, { replace: true })
             })
             .catch(err => console.error(err))
     }

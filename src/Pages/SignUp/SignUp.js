@@ -37,6 +37,7 @@ const SignUp = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email)
+                        setCreatedUserEmail(user?.email)
                         navigate('/')
                     })
                     .catch(err => console.log(err))
@@ -54,7 +55,7 @@ const SignUp = () => {
                 console.log(user)
                 saveUser(user.displayName, user?.email);
                 // navigate('/')
-                setCreatedUserEmail(user.email)
+                setCreatedUserEmail(user?.email)
             })
             .catch(err => console.error(err))
     }
