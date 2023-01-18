@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 
 const AllUsers = () => {
 
-    const { data: users = [] } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/users')
@@ -12,9 +13,25 @@ const AllUsers = () => {
         }
     })
 
+    const handleMakeAdmin = id => {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('Make Admin Successfully')
+                    refetch()
+                }
+            })
+    }
+
     return (
         <div className='ml-2'>
-            <h2 className='text-3xl'>All Users</h2>
+            <h2 className='text-3xl text-center my-3 font-semibold'>All Users</h2>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -23,8 +40,8 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Favorite Color</th>
-                            <th>Favorite Color</th>
+                            <th>Admin</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +51,12 @@ const AllUsers = () => {
                                     <th>{i + 1}</th>
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
-                                    <td>Blue</td>
+                                    <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user?._id)} className='btn btn-xs text-white btn-primary rounded-3xl'>Make Admin</button>}</td>
+                                    <td>
+                                        <button className="btn btn-circle btn-outline">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                        </button>
+                                    </td>
                                 </tr>)
                         }
 

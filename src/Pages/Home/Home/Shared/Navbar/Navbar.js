@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../../contexts/AuthProvider';
 import img from '../../../../../assets/login/E-Shop.webp'
+import './Navbar.css'
 
 const Navbar = () => {
 
@@ -42,8 +43,7 @@ const Navbar = () => {
 
 
     return (
-        <div>
-
+        <div className='navbar'>
             <div
                 style={{
                     backgroundColor: '#16a085',
