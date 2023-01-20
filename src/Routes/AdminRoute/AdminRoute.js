@@ -1,28 +1,19 @@
 import { Navigate, useLocation } from 'react-router-dom';
-
-import { Circles } from 'react-loader-spinner'
 import useAdmin from '../../Hooks/useAdmin';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Loading from '../../Pages/Shared/Loading/Loading';
 
 const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
 
-    const { isAdmin } = useAdmin(user?.email)
+    const { isAdmin, isAdminLoading } = useAdmin(user?.email)
 
     const location = useLocation()
 
-    if (loading) {
+    if (loading || isAdminLoading) {
         return <div className='flex justify-center mt-32'>
-            <Circles
-                height="80"
-                width="80"
-                color="#4fa94d"
-                ariaLabel="circles-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-            />
+            <Loading></Loading>
         </div>
     }
 

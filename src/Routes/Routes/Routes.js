@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allusers',
-                element: <AdminRoute><AllUsers /></AdminRoute>
+                element: <AllUsers />
             },
         ]
     }

@@ -8,6 +8,7 @@ const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
+    console.log(useAdmin)
 
     return (
         <div>
@@ -25,10 +26,10 @@ const DashboardLayout = () => {
 
                         <div className='mt-10'>
                             <li ><Link to='/dashboard'>My Orders</Link></li>
+                            <li ><Link to='/dashboard/allusers'>All Users</Link></li>
 
                             {
                                 isAdmin && <>
-                                    <li ><Link to='/dashboard/allusers'>All Users</Link></li>
                                 </>
                             }
 

@@ -27,7 +27,31 @@ const AllUsers = () => {
                     refetch()
                 }
             })
+            .catch(console.log(
+                toast.error('sorry you are not admin')
+            ))
     }
+
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/users/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount > 0) {
+                    toast.success('Delete Confirmed')
+                }
+                refetch()
+            })
+            .catch(console.log(
+                toast.error('sorry you are not admin')
+            ))
+    }
+
 
     return (
         <div className='ml-2'>
@@ -53,7 +77,7 @@ const AllUsers = () => {
                                     <td>{user.email}</td>
                                     <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user?._id)} className='btn btn-xs text-white btn-primary rounded-3xl'>Make Admin</button>}</td>
                                     <td>
-                                        <button className="btn btn-circle btn-outline">
+                                        <button onClick={() => handleDelete(user?._id)} className="btn btn-circle btn-outline">
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                         </button>
                                     </td>
