@@ -9,6 +9,8 @@ import Loading from '../Shared/Loading/Loading';
 
 import img from '../../assets/login/Login.webp'
 import useToken from '../../Hooks/useToken';
+import LoadingButton from '../LoadingButton/LoadingButton';
+import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
@@ -55,9 +57,9 @@ const Login = () => {
             .catch(err => console.error(err))
     }
 
-    if (loading) {
-        return <Loading></Loading>
-    }
+    // if (loading) {
+    //     return <Loading></Loading>
+    // }
 
     return (
         <div className="hero ">
@@ -89,7 +91,16 @@ const Login = () => {
                                     <label className="label">  <span className="label-text  text-black">Forget Password</span> </label>
                                 </div>
 
-                                <input className='btn btn-accent w-full' value='Login' type="submit" />
+                                {/* <input className='btn btn-accent w-full' value='Login' type="submit" /> */}
+
+                                <LoadingButton
+                                    type="submit"
+                                    className='btn btn-accent w-full'
+                                    value='Login'
+                                >
+                                    {loading ? <SmallSpinner /> : 'login'}
+                                </LoadingButton>
+
                                 <div>
                                     {loginError && <p className='text-red-600'>{loginError} </p>}
                                 </div>

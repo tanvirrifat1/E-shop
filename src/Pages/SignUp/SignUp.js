@@ -7,6 +7,8 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import Loading from '../Shared/Loading/Loading';
 import img from '../../assets/login/signIn.webp'
 import useToken from '../../Hooks/useToken';
+import LoadingButton from '../LoadingButton/LoadingButton';
+import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 
 
 const SignUp = () => {
@@ -68,9 +70,6 @@ const SignUp = () => {
     }
 
 
-
-
-
     const handleGoogleLogin = () => {
         GoogleLogin()
             .then(result => {
@@ -99,14 +98,14 @@ const SignUp = () => {
             })
     }
 
-    if (loading) {
-        return <Loading></Loading>
-    }
+    // if (loading) {
+    //     return <Loading></Loading>
+    // }
 
     return (
         <div className="hero ">
             <div className="hero-content flex-col lg:flex-row">
-                <img src={img} alt='' className="max-w-sm rounded-lg shadow-2xl" />
+                <img src={img} alt='' className="max-w-sm h-[550px] rounded-lg shadow-2xl" />
                 <div>
                     <div className='h-[800px] flex justify-center items-center'>
                         <div className='w-96 p-7'>
@@ -141,20 +140,32 @@ const SignUp = () => {
                                     {errors.password && <p className='text-error'>{errors?.password?.message}</p>}
                                 </div>
 
-                                <div className="form-control w-full max-w-xs">
+                                <div className="form-control  w-full max-w-xs">
                                     <label className="label"> <span className="label-text text-black">Photo</span></label>
                                     <input type="file" {...register("image", {
 
-                                    })} className="input input-bordered w-full max-w-xs" />
+                                    })} className="input input-primary input-bordered w-full max-w-xs" />
                                     {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
                                 </div>
 
-                                <input className='btn btn-accent w-full mt-4' value='Sign Up' type="submit" />
+                                {/* <input className='btn btn-accent w-full mt-4' value='Sign Up' type="submit" /> */}
+
+                                <div className='mt-4'>
+                                    <LoadingButton
+                                        type="submit"
+                                        className='btn btn-accent mt-3 w-full'
+                                        value='Login'
+                                    >
+                                        {loading ? <SmallSpinner /> : 'signUp'}
+                                    </LoadingButton>
+                                </div>
+
                                 {signUpError && <p className='text-red-600'>{signUpError} </p>}
                                 <p className='mt-2'>Already have an Account <Link className='text-primary' to='/login'>Please Login</Link></p>
                                 <div className="divider">OR</div>
                             </form>
                             <button onClick={handleGoogleLogin} className="btn btn-outline btn-secondary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
+
                         </div>
                     </div>
                 </div>
