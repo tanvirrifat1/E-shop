@@ -5,7 +5,7 @@ import OrderBanner from './OrderBanner/OrderBanner';
 const Orders = () => {
     const [selectedDate, setSelectedDate] = useState(new Date())
     return (
-        <div className=''>
+        <div >
             <OrderBanner
                 selectedDate={selectedDate}
                 setSelectedDate={setSelectedDate}
