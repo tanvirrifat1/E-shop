@@ -8,7 +8,6 @@ const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
-    console.log(useAdmin)
 
     return (
         <div>
@@ -22,7 +21,7 @@ const DashboardLayout = () => {
                     backgroundColor: '#1abc9c',
                 }} className="drawer-side ">
                     <label htmlFor="dashBoard-drawer" className="drawer-overlay"></label>
-                    <ul className=" menu p-4 w-80 text-[16px] font-semibold bg-base-100 text-base-content">
+                    <ul className=" menu  p-4 w-80 text-[16px] font-semibold bg-base-100 text-base-content">
 
                         <div className='mt-10'>
                             <li ><Link to='/dashboard'>My Orders</Link></li>

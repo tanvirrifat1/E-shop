@@ -18,35 +18,58 @@ const SignUp = () => {
     const [token] = useToken(createdUserEmail)
     const navigate = useNavigate()
 
+
     if (token) {
         navigate('/')
     }
 
+    const imgKey = process.env.REACT_APP_IMG_key
+
+
     const handleSignUp = (data) => {
-        setSignUpError('')
-        createUser(data.email, data.password)
-            .then(result => {
-                const user = result.user
-                console.log(user)
-                emailVerify()
-                toast.success('Successfully User create')
-                const userInfo = {
-                    displayName: data.name,
-                    photoURL: data.photoURL,
+
+        const image = data.image[0]
+        const formData = new FormData();
+        formData.append('image', image)
+
+        const url = `https://api.imgbb.com/1/upload?&key=${imgKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                if (imgData.success) {
+                    createUser(data.email, data.password)
+                        .then(result => {
+                            const user = result.user
+                            console.log(user)
+                            emailVerify()
+                            toast.success('Successfully User create')
+                            const userInfo = {
+                                displayName: data.name,
+                                photoURL: imgData.data.url,
+                            }
+                            updateUser(userInfo)
+                                .then(() => {
+                                    saveUser(data.name, data.email);
+                                })
+                                .catch(err => console.log(err))
+                        })
+                        .catch(err => {
+                            console.log(err)
+                            setSignUpError(err.message)
+                        })
                 }
-                updateUser(userInfo)
-                    .then(() => {
-                        saveUser(data.name, data.email)
-                        setCreatedUserEmail(user?.email)
-                        navigate('/')
-                    })
-                    .catch(err => console.log(err))
             })
-            .catch(err => {
-                console.log(err)
-                setSignUpError(err.message)
-            })
+
+        setSignUpError('')
+
     }
+
+
+
+
 
     const handleGoogleLogin = () => {
         GoogleLogin()
@@ -75,8 +98,6 @@ const SignUp = () => {
                 setCreatedUserEmail(email)
             })
     }
-
-
 
     if (loading) {
         return <Loading></Loading>
@@ -118,6 +139,14 @@ const SignUp = () => {
                                         })}
                                         className="input input-bordered input-primary w-full max-w-xs" />
                                     {errors.password && <p className='text-error'>{errors?.password?.message}</p>}
+                                </div>
+
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label"> <span className="label-text text-black">Photo</span></label>
+                                    <input type="file" {...register("image", {
+
+                                    })} className="input input-bordered w-full max-w-xs" />
+                                    {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
                                 </div>
 
                                 <input className='btn btn-accent w-full mt-4' value='Sign Up' type="submit" />

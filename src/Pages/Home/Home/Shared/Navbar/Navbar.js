@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='navbar'>
+        <div className='navbar z-20'>
             <div
                 style={{
                     backgroundColor: '#16a085',
