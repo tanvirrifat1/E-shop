@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Loading from '../Shared/Loading/Loading';
@@ -14,7 +14,7 @@ import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
     const [signUpError, setSignUpError] = useState('')
-    const { createUser, emailVerify, updateUser, GoogleLogin, loading } = useContext(AuthContext)
+    const { createUser, emailVerify, updateUser, GoogleLogin, loading, facebookLogin } = useContext(AuthContext)
 
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail)
@@ -97,6 +97,9 @@ const SignUp = () => {
                 setCreatedUserEmail(email)
             })
     }
+
+
+
 
     // if (loading) {
     //     return <Loading></Loading>

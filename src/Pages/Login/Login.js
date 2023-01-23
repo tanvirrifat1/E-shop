@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaGoogle } from "react-icons/fa";
 import './Login.css'
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-hot-toast';
 import Loading from '../Shared/Loading/Loading';
-
 import img from '../../assets/login/Login.webp'
 import useToken from '../../Hooks/useToken';
 import LoadingButton from '../LoadingButton/LoadingButton';
@@ -14,7 +13,7 @@ import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
-    const { userLogin, GoogleLogin, loading } = useContext(AuthContext)
+    const { userLogin, GoogleLogin, loading, facebookLogin } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
 
     const [loginUserEmail, setLoginUserEmail] = useState('')
@@ -60,6 +59,9 @@ const Login = () => {
     // if (loading) {
     //     return <Loading></Loading>
     // }
+
+
+
 
     return (
         <div className="hero ">

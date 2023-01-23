@@ -147,9 +147,19 @@ const About = () => {
                                 required
                                 className="w-full p-6 bg-transparent border-2 border-black  text-black "
                             ></textarea>
-                            <button type="submit" value="Send" className="hover:text-gray-100 w-full btn bg-gradient-to-r from-primary to-secondary text-white">
+                            <button type="submit" value="Send" className="
+                            inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out
+                            hover:text-gray-100 w-full btn bg-gradient-to-r from-primary to-secondary text-white">
                                 Send Message
                             </button>
+
+                            <a
+                                class=""
+                                href="#!"
+                                role="button"
+                                data-mdb-ripple="true"
+                                data-mdb-ripple-color="light"
+                            >Call to action</a>
 
                         </form>
                     </div>
