@@ -110,7 +110,6 @@ const Login = () => {
                             <p className='mt-2'>New to Create Account <Link className='text-primary ml-2 font-bold' to='/signup'>Create New Account</Link></p>
                             <div className="divider">OR</div>
                             <button onClick={handleGoogleLogin} className="btn btn-outline btn-primary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
-
                         </div>
                     </div>
                 </div>

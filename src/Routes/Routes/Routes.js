@@ -4,6 +4,7 @@ import Main from "../../Layout/Main";
 import About from "../../Pages/About/About";
 import AllUsers from "../../Pages/DashBoard/AllUsers/AllUsers";
 import MyOrders from "../../Pages/DashBoard/MyOrders/MyOrders";
+import FeedBack from "../../Pages/FeedBack/FeedBack";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Orders from "../../Pages/Orders/Orders";
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About></About>
+            },
+            {
+                path: '/feedback',
+                element: <FeedBack></FeedBack>
             },
 
         ]
