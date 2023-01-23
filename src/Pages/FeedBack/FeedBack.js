@@ -4,12 +4,15 @@ import { toast } from 'react-hot-toast';
 import image from '../../assets/login/review.webp'
 import LoadingButton from '../LoadingButton/LoadingButton';
 import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineMail } from "react-icons/ai";
 import { MdOutlineDescription } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
+import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 
 
 const FeedBack = () => {
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     const imgKey = process.env.REACT_APP_IMG_key
 
@@ -57,11 +60,8 @@ const FeedBack = () => {
                         }
                     })
                     .catch(err => console.error(err))
-
             })
-
             .catch(err => console.error(err))
-
     }
 
     const { data: feedbacks = [], refetch } = useQuery({
@@ -70,7 +70,6 @@ const FeedBack = () => {
             const res = await fetch('http://localhost:5000/feedback')
             const data = await res.json();
             return data;
-
         }
     })
 
@@ -79,8 +78,10 @@ const FeedBack = () => {
         <div
             style={{ backgroundImage: `url("https://img.freepik.com/free-vector/review-rating-isometric-landing-page-banner_107791-1024.jpg?size=626&ext=jpg&uid=R83218281&ga=GA1.2.1908891225.1665030381&semt=sph")`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center' }}
             className='flex flex-col justify-center '>
-
             <div>
+                <div onClick={() => navigate(-1)}>
+                    <p className='text-white text-3xl p-4 my-4'><BsFillArrowLeftCircleFill /></p>
+                </div>
                 <form onSubmit={handleReview} className='m-6 p-16 max-w-xl mx-auto'>
                     <div className=' gap-4'>
                         <div className=''>
@@ -142,22 +143,7 @@ const FeedBack = () => {
                 })}
             </div>
         </div>
-
-
-
-
-
     );
 };
 
 export default FeedBack;
-
-
-
-
-
-
-
-
-
-

@@ -6,18 +6,19 @@ import img2 from '../../assets/about/whatsapp.jpg'
 // import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-hot-toast';
-import { AuthContext } from '../../contexts/AuthProvider';
 import LoadingButton from '../LoadingButton/LoadingButton';
 import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
+import { useState } from 'react';
+
 
 
 const About = () => {
-    const { loading } = useContext(AuthContext)
     const form = useRef();
+    const [loading, setLoading] = useState(false)
 
     const sendEmail = (e) => {
         e.preventDefault();
-
+        setLoading(true)
         emailjs.sendForm(
             process.env.REACT_APP_SERVICE,
             process.env.REACT_APP_TEMPLETE,
@@ -26,6 +27,7 @@ const About = () => {
             .then((result) => {
                 console.log(result.text);
                 console.log('message send')
+                setLoading(false)
             }, (error) => {
                 console.log(error.text);
             });
@@ -147,19 +149,17 @@ const About = () => {
                                 required
                                 className="w-full p-6 bg-transparent border-2 border-black  text-black "
                             ></textarea>
-                            <button type="submit" value="Send" className="
-                            inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out
-                            hover:text-gray-100 w-full btn bg-gradient-to-r from-primary to-secondary text-white">
-                                Send Message
-                            </button>
 
-                            <a
-                                class=""
-                                href="#!"
-                                role="button"
-                                data-mdb-ripple="true"
-                                data-mdb-ripple-color="light"
-                            >Call to action</a>
+
+                            <div className='mt-4'>
+                                <LoadingButton
+                                    type="submit"
+                                    className='btn btn-accent mt-3 w-full'
+                                    value='Send'
+                                >
+                                    {loading ? <SmallSpinner /> : 'submit'}
+                                </LoadingButton>
+                            </div>
 
                         </form>
                     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './OrderOption.css'
 
 const OrderOption = ({ option, setTreatment }) => {
@@ -21,6 +22,11 @@ const OrderOption = ({ option, setTreatment }) => {
                             htmlFor="openModal"
                             className=" btn btn-primary w-full text-white"
                         >Buy Now</label>
+                        <div className='text-start'>
+                            <Link to='feedback'>
+                                <a className="link link-success">FeedBack Here</a>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

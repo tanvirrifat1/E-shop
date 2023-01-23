@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import Loading from '../Shared/Loading/Loading';
 import img from '../../assets/login/signIn.webp'
 import useToken from '../../Hooks/useToken';
 import LoadingButton from '../LoadingButton/LoadingButton';
@@ -70,14 +69,12 @@ const SignUp = () => {
 
     }
 
-
     const handleGoogleLogin = () => {
         GoogleLogin()
             .then(result => {
                 const user = result.user;
                 console.log(user)
                 saveUser(user.displayName, user?.email);
-                // navigate('/')
                 setCreatedUserEmail(user?.email)
             })
             .catch(err => console.error(err))
@@ -100,11 +97,6 @@ const SignUp = () => {
     }
 
 
-
-
-    // if (loading) {
-    //     return <Loading></Loading>
-    // }
 
     return (
         <div className="hero ">
