@@ -41,6 +41,7 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(imgData => {
+                console.log(imgData.data.url)
                 if (imgData.success) {
                     createUser(data.email, data.password)
                         .then(result => {
