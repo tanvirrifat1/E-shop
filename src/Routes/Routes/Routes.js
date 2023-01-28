@@ -7,6 +7,7 @@ import MyOrders from "../../Pages/DashBoard/MyOrders/MyOrders";
 import FeedBack from "../../Pages/FeedBack/FeedBack";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Message from "../../Pages/Message/Message";
 import Orders from "../../Pages/Orders/Orders";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path: '/feedback',
                 element: <FeedBack></FeedBack>
+            },
+            {
+                path: '/message',
+                element: <Message></Message>
             },
 
         ]

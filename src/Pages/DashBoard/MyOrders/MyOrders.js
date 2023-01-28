@@ -21,6 +21,18 @@ const MyOrders = () => {
         }
     })
 
+    // const handleDelete = id => {
+    //     fetch(`http://localhost:5000/bookings/${id}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             authorization: `bearer ${localStorage.getItem('accessToken')}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //         })
+    // }
 
     if (isLoading) {
         <Loading></Loading>
@@ -41,7 +53,6 @@ const MyOrders = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Price</th>
-                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,9 +71,9 @@ const MyOrders = () => {
                                 <td>{book.orderDate}</td>
                                 <td>{book.slot}</td>
                                 <td>{book.price}</td>
-                                <td> <button className="btn btn-circle btn-outline">
+                                {/* <td> <button onClick={() => handleDelete(user?.id)} className="btn btn-circle btn-outline">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button></td>
+                                </button></td> */}
                             </tr>)}
 
                     </tbody>

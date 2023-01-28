@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 import image from '../../assets/login/review.webp'
 import LoadingButton from '../LoadingButton/LoadingButton';
 import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
-import { AiOutlineArrowLeft, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
 import { MdOutlineDescription } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
