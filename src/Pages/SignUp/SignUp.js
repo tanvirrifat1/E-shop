@@ -13,7 +13,7 @@ import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
     const [signUpError, setSignUpError] = useState('')
-    const { createUser, emailVerify, updateUser, GoogleLogin, loading, facebookLogin } = useContext(AuthContext)
+    const { createUser, emailVerify, updateUser, GoogleLogin, loading } = useContext(AuthContext)
 
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail)
@@ -82,7 +82,7 @@ const SignUp = () => {
 
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch('http://localhost:5000/users', {
+        fetch('https://e-shop-server-delta.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -99,7 +99,8 @@ const SignUp = () => {
 
 
     return (
-        <div className="hero ">
+        <div className="hero " data-aos="fade-up"
+            data-aos-duration="3000">
             <div className="hero-content flex-col lg:flex-row">
                 <img src={img} alt='' className="max-w-sm h-[550px] rounded-lg shadow-2xl" />
                 <div>

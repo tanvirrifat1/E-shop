@@ -42,23 +42,27 @@ const About = () => {
                 <section className=" mt-6 ">
 
                     <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-                        <h2 className="text-2xl font-semibold sm:text-4xl flex justify-center">FAQ</h2>
+                        <h2 className="text-2xl font-semibold sm:text-4xl flex justify-center uppercase">5 Order Way</h2>
                         <div className="space-y-4 text-xl rounded-xl">
                             <details className="w-full border " open="">
-                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Will i get Any job offer if i join as a trainee</summary>
-                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">As soon as you've completed our comprehensive online trainings, you can be invited for interviews with companies which is a great way to find your perfect job.</p>
+                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Browse catalog</summary>
+                                <p className="px-4 py-6 pt-0 ml-4 mt-9 "> Customers can browse through the product catalog, filtering by categories, brands, or price.</p>
                             </details>
                             <details className="w-full border ">
-                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">How can i get in touch with you</summary>
-                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">Feel free to contact us by sending an email at Nageena@vlaunchu.com or call us on +91 99720 98197. </p>
+                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Add to cart</summary>
+                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">Customers can select products they want to purchase and add them to their virtual shopping cart.</p>
                             </details>
                             <details className="w-full border ">
-                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">How does Vlaunchu do?</summary>
-                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">Vlaunchu has various services to cater to the needs of different target markets. We have business consultation and HR consultancy, provide trainings and IT& Web Development services , we also have a Digital Marketing wing to boost an individual or company's visibility through Ad campaigns and Social Media Marketing. </p>
+                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Checkout</summary>
+                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">Customers can review their cart, input shipping information, and select payment method. </p>
                             </details>
                             <details className="w-full border ">
-                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">How can i be a part of Vlaunchu?</summary>
-                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">We are always on the lookout for talent - be it fresh graduates, freelancers, people who want to start their own business, or companies looking to hire talents. Interested in becoming a part of Vlaunchu? Don't wait - fill up this form now!!! bit.ly/vlaunchu</p>
+                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Payment</summary>
+                                <p className="px-4 py-6 pt-0 ml-4 mt-9 "> Customers can make a payment using a credit card, PayPal, or other accepted forms of payment.</p>
+                            </details>
+                            <details className="w-full border ">
+                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Confirmation</summary>
+                                <p className="px-4 py-6 pt-0 ml-4 mt-9 ">Customers receive an order confirmation, including a summary of their order and a tracking number if applicable.</p>
                             </details>
                         </div>
                     </div>

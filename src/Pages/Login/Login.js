@@ -12,7 +12,7 @@ import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
-    const { userLogin, GoogleLogin, loading, facebookLogin } = useContext(AuthContext)
+    const { userLogin, GoogleLogin, loading } = useContext(AuthContext)
     const [loginError, setLoginError] = useState('')
 
     const [loginUserEmail, setLoginUserEmail] = useState('')
@@ -63,7 +63,8 @@ const Login = () => {
 
 
     return (
-        <div className="hero ">
+        <div className="hero " data-aos="fade-up"
+            data-aos-duration="3000">
             <div className="hero-content flex-col lg:flex-row">
 
                 <img src={img} alt='' className="max-w-sm rounded-lg shadow-2xl" />

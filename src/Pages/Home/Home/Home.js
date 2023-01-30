@@ -30,7 +30,7 @@ const Home = () => {
             <Orders></Orders>
             <MakeSmartHuman></MakeSmartHuman>
             <About></About>
-            <Testimonial></Testimonial>
+            {/* <Testimonial></Testimonial> */}
         </div >
     );
 };
