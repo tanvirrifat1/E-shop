@@ -4,15 +4,20 @@ import './InfoCard.css'
 const InfoCard = ({ card }) => {
     const { name, description, icon, } = card
     return (
-        <div>
-            <div id='Style-shadow' className={`card card-side shadow-xl ml-2 bg-base-100`}>
-                <figure ><img className='h-[150px]' src={icon} alt="Movie" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>{description}</p>
+        <div data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500">
+            <div>
+                <div >
+                    <div style={{ backgroundImage: `url(${icon})` }} id='Style-shadow'
+                        className={`card card-side h-56 bg-cover shadow-xl ml-2 bg-base-100 hover:scale-110 transition duration-300 ease-in-out`}>
+                        <div className="card-body">
+                            <h2 className="text-2xl font-bold">{name}</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -23,7 +23,7 @@ import img6 from '../../../assets/slider/bag.webp'
 const Slider = () => {
     return (
         <div
-            className='container mx-auto'
+            className=' container mx-auto'
             data-aos="fade-down"
             data-aos-duration="3000"
         >
@@ -46,7 +46,6 @@ const Slider = () => {
                 <SwiperSlide><img src={img4} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={img5} alt="" /></SwiperSlide>
                 <SwiperSlide><img src={img6} alt="" /></SwiperSlide>
-
             </Swiper>
         </div>
     );

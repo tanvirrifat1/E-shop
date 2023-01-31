@@ -32,6 +32,7 @@ const DashboardLayout = () => {
                         <div className='mt-10'>
                             <li ><Link to='/dashboard'>My Orders</Link></li>
                             <li ><Link to='/dashboard/allusers'>All Users</Link></li>
+                            <li ><Link to='/dashboard/addproduct'>All Users</Link></li>
 
                             {
                                 isAdmin && <>
