@@ -14,6 +14,10 @@ const InfoCard = ({ card }) => {
                         <div className="card-body">
                             <h2 className="text-2xl font-bold">{name}</h2>
                         </div>
+
+                    </div>
+                    <div className='flex justify-center my-4'>
+                        <button className="btn btn-outline w-[350px] btn-error">{name}</button>
                     </div>
                 </div>
             </div>
