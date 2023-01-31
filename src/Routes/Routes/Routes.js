@@ -10,6 +10,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Message from "../../Pages/Message/Message";
 import Orders from "../../Pages/Orders/Orders";
+import Product from "../../Pages/Product/Product";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -46,6 +47,11 @@ export const router = createBrowserRouter([
             {
                 path: '/message',
                 element: <Message></Message>
+            },
+            {
+                path: '/products/category/:id',
+                element: <Product />,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/category/${params.id}`),
             },
 
         ]

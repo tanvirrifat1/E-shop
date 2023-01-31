@@ -1,59 +1,30 @@
 import React from 'react';
 
 import phone from '../../../assets/People/people4.webp'
-import watch from '../../../assets/People/children.avif'
+import watch from '../../../assets/People/children.webp'
 import laptop from '../../../assets/People/prople6.jpg'
 import headPhone from '../../../assets/People/prople7.jpg'
 import camera from '../../../assets/People/prople8.jpg'
 import monitor from '../../../assets/People/prople10.jpg'
 
 import InfoCard from './InfoCard';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const InfoCards = () => {
 
-    const cardData = [
-        {
-            id: 1,
-            name: 'Mens',
-            description: 'A mobile phone, cellular phone, cell phone, cellphone.....',
-            icon: phone,
+    const [categories, setCategories] = useState([])
 
-        },
-        {
-            id: 2,
-            name: 'Children',
-            description: 'A smartwatch is a wearable computer in the form of a watch.....',
-            icon: watch,
-        },
-        {
-            id: 3,
-            name: 'Womans',
-            description: 'A laptop is a personal computer that can be easily moved..... ',
-            icon: laptop,
+    useEffect(() => {
+        fetch('http://localhost:5000/categories')
+            .then(res => res.json())
+            .then(data => {
+                setCategories(data)
+            })
+    }, [])
 
-        },
-        // {
-        //     id: 4,
-        // name: 'HeadPhone',
-        //     description: 'Headphones are a pair of small loudspeaker drivers worn on ..... ',
-        //     icon: headPhone,
 
-        // },
-        // {
-        //     id: 5,
-        // name: 'Camera',
-        //     description: 'camera, in photography, device for recording an image..... ',
-        //     icon: camera,
-
-        // },
-        // {
-        //     id: 6,
-        // name: 'Monitor',
-        //     description: 'It is used to display images, text, video, and graphics information..... ',
-        //     icon: monitor,
-
-        // },
-    ]
 
     return (
         <div className='container mx-auto'>
@@ -63,12 +34,60 @@ const InfoCards = () => {
             <div className='grid  gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3' >
 
                 {
-                    cardData.map(card => <InfoCard
-                        key={card.id}
-                        card={card}
-                    ></InfoCard>)
+                    categories.map(category => <div
+                        data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1500"
+                        className='shadow-2xl'>
+                        <div style={{ backgroundImage: `url(${category.image})` }} id='Style-shadow'
+                            className={`card card-side h-56 bg-cover shadow-xl ml-2 bg-base-100 hover:scale-110 transition duration-300 ease-in-out`}>
+                            <div className="card-body">
+                                <h2 className="text-2xl font-bold">{category.categoryName}</h2>
+                            </div>
+
+                        </div>
+                        <Link to={`/products/category/${category.categoryId}`}>
+                            <div className='flex justify-center my-4'>
+                                <button className="btn  w-full btn-error">{category.categoryName}</button>
+                            </div>
+                        </Link>
+                    </div >)
                 }
             </div>
+
+            {/* <div className='p-10 container mx-auto'>
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 mx-auto container'>
+
+                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                        <figure><img src={phone} alt="Shoes" /></figure>
+                        <div className="card-body">
+
+                            <Link to={'/products/category'} className="card-actions justify-end">
+                                <button className="btn btn-error text-white w-full">Mens</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                        <figure><img src={watch} alt="Shoes" /></figure>
+                        <div className="card-body">
+
+                            <Link to={'/products/category'} className="card-actions justify-end">
+                                <button className="btn btn-error text-white w-full">Children</button>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                        <figure><img src={laptop} alt="Shoes" /></figure>
+                        <div className="card-body">
+
+                            <Link to={'/products/category'} className="card-actions justify-end">
+                                <button className="btn btn-error text-white w-full">Womans</button>
+                            </Link>
+                        </div>
+                    </div>
+
+                </div>
+            </div> */}
         </div>
     );
 };

@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import LoadingButton from '../../LoadingButton/LoadingButton';
+import SmallSpinner from '../../LoadingButton/SmallSpinner/SmallSpinner';
 
 const AddProDuct = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [loading, setLoading] = useState(false)
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { user } = useContext(AuthContext)
     const imgKey = process.env.REACT_APP_IMG_key
 
-    const items = ["mans", "children", "woman",]
+    // const items = ["mans", "children", "woman",]
 
     const handleAddProduct = (data) => {
+        setLoading(true)
         const productName = data.productName
         const price = data.price
-        const categories = data.categories
+        const categoryId = data.category
         const description = data.description;
         const time = new Date().toLocaleString();
 
@@ -24,7 +28,7 @@ const AddProDuct = () => {
             name: user.displayName,
             sellerEmail: user.email,
             price,
-            categories,
+            categoryId,
             description,
             time,
         }
@@ -42,6 +46,9 @@ const AddProDuct = () => {
                     const photoURL = imageData.data.url;
                     productInfo.photoURL = photoURL;
                     addProduct(productInfo)
+                    console.log(productInfo)
+                    setLoading(false)
+
                 }
                 console.log(imageData)
             })
@@ -62,6 +69,7 @@ const AddProDuct = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success('Your Product successfully added');
+                    reset()
                 }
             })
     }
@@ -99,16 +107,13 @@ const AddProDuct = () => {
                                 <span className="label-text font-bold">Categories</span>
                             </label>
                             <select defaultValue={''}
-                                className='w-full px-3 py-2 border rounded-md border-gray-900 focus:outline-green-500 bg-blue-200 text-gray-900' {...register("categories", {
+                                className='w-full px-3 py-3 border rounded-md border-gray-900 focus:outline-green-500 bg-blue-200 text-gray-900' {...register("category", {
                                     required: "Brand is required"
                                 })}>
                                 <option value={''} disabled selected>Select Categories</option>
-                                {
-                                    items?.map((brand, i) => <option
-                                        key={i}
-                                        value={brand}
-                                    >{brand}</option>)
-                                }
+                                <option value='1'>Mens</option>
+                                <option value='2'>Children</option>
+                                <option value='3'>Womans</option>
                             </select>
 
                         </div>
@@ -134,7 +139,16 @@ const AddProDuct = () => {
                         })}></textarea>
                     </div>
                 </div>
-                <button className="btn w-full btn-primary">Submit</button>
+
+                <div className='mt-4'>
+                    <LoadingButton
+                        type="submit"
+                        className='btn btn-accent mt-3 w-full'
+                        value='Send'
+                    >
+                        {loading ? <SmallSpinner /> : 'submit'}
+                    </LoadingButton>
+                </div>
 
             </form>
         </div>

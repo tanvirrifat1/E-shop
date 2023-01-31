@@ -9,6 +9,7 @@ const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
+    console.log(isAdmin)
     const navigate = useNavigate()
 
 
@@ -32,10 +33,10 @@ const DashboardLayout = () => {
                         <div className='mt-10'>
                             <li ><Link to='/dashboard'>My Orders</Link></li>
                             <li ><Link to='/dashboard/allusers'>All Users</Link></li>
-                            <li ><Link to='/dashboard/addProduct'>Add Product</Link></li>
 
                             {
                                 isAdmin && <>
+                                    <li ><Link to='/dashboard/addProduct'>Add Product</Link></li>
                                 </>
                             }
 
