@@ -1,23 +1,33 @@
 import React from 'react';
 import { useState } from 'react';
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
-import { Navigate, useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import LoadingButton from '../LoadingButton/LoadingButton';
 import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 
 const Product = () => {
-    <div className='flex '>
-        <div onClick={() => Navigate(-1)}>
-            <p className='text-black text-3xl  my-2'><BsFillArrowLeftCircleFill /></p>
-        </div>
-
-    </div>
-
+    const navigate = useNavigate()
     const products = useLoaderData()
     const [loading, setloading] = useState(false)
     console.log(products)
+
+    const handleBuyNow = (product) => {
+        console.log(product)
+    }
+
+    fetch(`http://localhost:5000/order`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify()
+    })
+
     return (
         <div className='mx-auto container'>
+            <div onClick={() => navigate(-1)}>
+                <p className='text-black text-3xl p-4 my-4'><BsFillArrowLeftCircleFill /></p>
+            </div>
             <div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
                 {
                     products && products.map(product => {
@@ -31,7 +41,7 @@ const Product = () => {
                                             {/* <h2 className="text-xl font-semibold text-white">Product Name: <span className='text-green-500'>{productName}</span></h2>
                                             <p className="text-2xl text-white">price: $<span className='text-green-500'>{price}</span></p> */}
                                         </div>
-                                        <div className='mt-4'>
+                                        {/* <div className='mt-4'>
                                             <LoadingButton
                                                 type="submit"
                                                 className='btn btn-accent mt-3 w-full'
@@ -39,10 +49,10 @@ const Product = () => {
                                             >
                                                 {loading ? <SmallSpinner /> : 'buy'}
                                             </LoadingButton>
-                                        </div>
+                                        </div> */}
 
                                         {/* The button to open modal */}
-                                        <label htmlFor="buyNowModal" className="hover:text-gray-100 w-full btn bg-gradient-to-r from-primary to-secondary text-white">Details</label>
+                                        <label htmlFor="buyNowModal" className="hover:text-gray-100 w-full btn bg-gradient-to-r from-primary to-secondary text-white">Buy </label>
 
                                         {/* Put this part before </body> tag */}
                                         <input type="checkbox" id="buyNowModal" className="modal-toggle" />
@@ -59,6 +69,15 @@ const Product = () => {
                                                 <h3 className="text-lg font-bold">User Name: <span className='text-green-500'>{name}</span></h3>
                                                 <p className="py-2 font-semibold">product quality: {description}</p>
                                                 <p className=" font-semibold">product launch time: {time}</p>
+                                                <div onClick={() => handleBuyNow(product)} className='mt-4'>
+                                                    <LoadingButton
+                                                        type="submit"
+                                                        className='btn btn-accent mt-3 w-full'
+                                                        value='Send'
+                                                    >
+                                                        {loading ? <SmallSpinner /> : 'buy now'}
+                                                    </LoadingButton>
+                                                </div>
                                             </div>
                                         </div>
 
