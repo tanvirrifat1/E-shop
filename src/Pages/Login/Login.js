@@ -35,6 +35,7 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 setLoginUserEmail(data.email)
+                navigate('/')
                 toast.success('Successfully Login')
             })
             .catch(err => {
@@ -50,7 +51,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 setLoginUserEmail(user?.email)
-                // navigate(from, { replace: true })
+                navigate('/')
             })
             .catch(err => console.error(err))
     }

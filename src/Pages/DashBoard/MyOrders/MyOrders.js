@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 const MyOrders = () => {
     const { user } = useContext(AuthContext)
 
-    const url = `https://e-shop-server-delta.vercel.app/bookings?email=${user?.email}`
+    const url = `http://localhost:5000/bookings?email=${user?.email}`
 
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -22,7 +22,7 @@ const MyOrders = () => {
     })
 
     // const handleDelete = id => {
-    //     fetch(`https://e-shop-server-delta.vercel.app/bookings/${id}`, {
+    //     fetch(`http://localhost:5000/bookings/${id}`, {
     //         method: "DELETE",
     //         headers: {
     //             authorization: `bearer ${localStorage.getItem('accessToken')}`

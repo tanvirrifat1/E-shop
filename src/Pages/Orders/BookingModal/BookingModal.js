@@ -29,7 +29,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
         }
         console.log(booking)
 
-        fetch('https://e-shop-server-delta.vercel.app/bookings', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

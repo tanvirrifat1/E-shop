@@ -43,7 +43,7 @@ const FeedBack = () => {
                     description
                 }
 
-                fetch(`https://e-shop-server-delta.vercel.app/feedback`, {
+                fetch(`http://localhost:5000/feedback`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -67,7 +67,7 @@ const FeedBack = () => {
     const { data: feedbacks = [], refetch } = useQuery({
         queryKey: ['feedbacks'],
         queryFn: async () => {
-            const res = await fetch('https://e-shop-server-delta.vercel.app/feedback')
+            const res = await fetch('http://localhost:5000/feedback')
             const data = await res.json();
             return data;
         }

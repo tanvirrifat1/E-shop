@@ -23,7 +23,7 @@ import img6 from '../../../assets/slider/bag.webp'
 const Slider = () => {
     return (
         <div
-            className=' container mx-auto'
+            className='z-20 container mx-auto'
             data-aos="fade-down"
             data-aos-duration="3000"
         >

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import About from '../../About/About';
@@ -12,7 +13,9 @@ import Testimonial from '../Testimonial/Testimonial';
 const Home = () => {
 
     const navigate = useNavigate()
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     return (
         <div className='mx-5 '>

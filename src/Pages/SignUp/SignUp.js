@@ -40,7 +40,7 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(imgData => {
-                console.log(imgData.data.url)
+                console.log(imgData)
                 if (imgData.success) {
                     createUser(data.email, data.password)
                         .then(result => {
@@ -82,7 +82,7 @@ const SignUp = () => {
 
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch('https://e-shop-server-delta.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

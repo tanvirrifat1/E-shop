@@ -38,7 +38,7 @@ const InfoCards = () => {
                         data-aos="fade-down"
                         data-aos-easing="linear"
                         data-aos-duration="1500"
-                        className='shadow-2xl'>
+                        className=''>
                         <div style={{ backgroundImage: `url(${category.image})` }} id='Style-shadow'
                             className={`card card-side h-56 bg-cover shadow-xl ml-2 bg-base-100 hover:scale-110 transition duration-300 ease-in-out`}>
                             <div className="card-body">
@@ -55,39 +55,6 @@ const InfoCards = () => {
                 }
             </div>
 
-            {/* <div className='p-10 container mx-auto'>
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2 mx-auto container'>
-
-                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={phone} alt="Shoes" /></figure>
-                        <div className="card-body">
-
-                            <Link to={'/products/category'} className="card-actions justify-end">
-                                <button className="btn btn-error text-white w-full">Mens</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={watch} alt="Shoes" /></figure>
-                        <div className="card-body">
-
-                            <Link to={'/products/category'} className="card-actions justify-end">
-                                <button className="btn btn-error text-white w-full">Children</button>
-                            </Link>
-                        </div>
-                    </div>
-                    <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={laptop} alt="Shoes" /></figure>
-                        <div className="card-body">
-
-                            <Link to={'/products/category'} className="card-actions justify-end">
-                                <button className="btn btn-error text-white w-full">Womans</button>
-                            </Link>
-                        </div>
-                    </div>
-
-                </div>
-            </div> */}
         </div>
     );
 };

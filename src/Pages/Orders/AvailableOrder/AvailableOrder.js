@@ -17,7 +17,7 @@ const AvailableOrder = ({ selectedDate }) => {
     const { data: orderOptions = [], refetch, isLoading } = useQuery({
         queryKey: ['orderOptions', date],
         queryFn: async () => {
-            const res = await fetch(`https://e-shop-server-delta.vercel.app/OrderOptions?date=${date}`)
+            const res = await fetch(`http://localhost:5000/OrderOptions?date=${date}`)
             const data = await res.json();
             return data
         }
