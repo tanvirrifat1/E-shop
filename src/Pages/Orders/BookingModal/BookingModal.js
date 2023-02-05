@@ -29,7 +29,7 @@ const BookingModal = ({ treatment, refetch, selectedDate, setTreatment }) => {
         }
         console.log(booking)
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://e-shop-server-tanvirrifat1.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

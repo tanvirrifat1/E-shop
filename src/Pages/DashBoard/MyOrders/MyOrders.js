@@ -6,7 +6,7 @@ import Loading from '../../Shared/Loading/Loading';
 const MyOrders = () => {
     const { user } = useContext(AuthContext)
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://e-shop-server-tanvirrifat1.vercel.app/bookings?email=${user?.email}`
 
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -24,7 +24,7 @@ const MyOrders = () => {
     const { data: newOrder = [], refetch } = useQuery({
         queryKey: ['order'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/order')
+            const res = await fetch('https://e-shop-server-tanvirrifat1.vercel.app/order')
             const data = await res.json();
             return data;
         }

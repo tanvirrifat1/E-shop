@@ -28,7 +28,7 @@ const AllProductModal = ({ product, setProduct }) => {
             time
         }
 
-        fetch(`http://localhost:5000/order`, {
+        fetch(`https://e-shop-server-tanvirrifat1.vercel.app/order`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

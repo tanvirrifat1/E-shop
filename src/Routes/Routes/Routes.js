@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
             {
                 path: '/products/category/:id',
                 element: <PrivateRoute><Product /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/category/${params.id}`),
+                loader: ({ params }) => fetch(`https://e-shop-server-tanvirrifat1.vercel.app/products/category/${params.id}`),
             },
 
         ]
@@ -74,8 +74,9 @@ export const router = createBrowserRouter([
                 element: <AddProDuct />
             },
             {
-                path: '/dashboard/addProductInfo',
-                element: <AddProDuctInfo />
+                path: '/dashboard/addProductInfo/:id',
+                element: <AddProDuctInfo />,
+                loader: ({ params }) => fetch(`http://localhost:5000/editCategories/${params.id}`)
             },
 
         ]

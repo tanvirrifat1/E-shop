@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import AllProductModal from './AllProductModal';
 import AllProducts from './AllProducts';
 
 const Product = () => {
     const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
     const products = useLoaderData()
     const [product, setProduct] = useState(null)
     return (
@@ -23,16 +25,16 @@ const Product = () => {
                     </AllProducts>)
                 }
             </div>
-            {
-                product &&
-                <AllProductModal
-                    product={product}
-                    setProduct={setProduct}
-                ></AllProductModal>
-            }
             <div>
+                {
+                    product &&
+                    <AllProductModal
+                        product={product}
+                        setProduct={setProduct}
+                    ></AllProductModal>
+                }
             </div>
-        </div>
+        </div >
     );
 };
 

@@ -26,6 +26,7 @@ const AddProDuct = () => {
         const productInfo = {
             productName,
             name: user.displayName,
+            user,
             sellerEmail: user.email,
             price,
             categoryId,
@@ -58,7 +59,7 @@ const AddProDuct = () => {
     }
 
     const addProduct = (productInfo) => {
-        fetch(`http://localhost:5000/addProduct`, {
+        fetch(`https://e-shop-server-tanvirrifat1.vercel.app/addProduct`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

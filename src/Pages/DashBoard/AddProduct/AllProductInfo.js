@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useLoaderData } from 'react-router-dom';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import SmallSpinner from '../../LoadingButton/SmallSpinner/SmallSpinner';
 
 const AllProductInfo = () => {
-
+    const allData = useLoaderData()
+    console.log(allData)
     const [loading, setLoading] = useState(false)
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -13,7 +15,7 @@ const AllProductInfo = () => {
         <div>
             <div>
                 <div>
-                    <h2 className='text-4xl my-3 text-center font-semibold'>Add Product</h2>
+                    <h2 className='text-4xl my-3 text-center font-semibold'>Edit Product</h2>
                 </div>
                 <form onSubmit={handleSubmit()} className='space-y-6 ng-untouched ng-pristine ng-valid p-6' >
                     <div className='space-y-4'>
