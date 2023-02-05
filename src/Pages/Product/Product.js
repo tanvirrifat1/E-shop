@@ -1,25 +1,13 @@
 import React, { useState } from 'react';
 import { BsFillArrowLeftCircleFill } from 'react-icons/bs';
 import { useLoaderData, useNavigate } from 'react-router-dom';
-import LoadingButton from '../LoadingButton/LoadingButton';
-import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 import AllProductModal from './AllProductModal';
 import AllProducts from './AllProducts';
 
 const Product = () => {
     const navigate = useNavigate()
     const products = useLoaderData()
-
     const [product, setProduct] = useState(null)
-
-    // fetch(`http://localhost:5000/order`, {
-    //     method: 'POST',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify()
-    // })
-
     return (
         <div className='mx-auto container'>
             <div onClick={() => navigate(-1)}>
@@ -39,6 +27,7 @@ const Product = () => {
                 product &&
                 <AllProductModal
                     product={product}
+                    setProduct={setProduct}
                 ></AllProductModal>
             }
             <div>

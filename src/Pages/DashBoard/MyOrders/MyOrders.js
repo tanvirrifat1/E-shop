@@ -21,18 +21,16 @@ const MyOrders = () => {
         }
     })
 
-    // const handleDelete = id => {
-    //     fetch(`http://localhost:5000/bookings/${id}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             authorization: `bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }
+    const { data: newOrder = [], refetch } = useQuery({
+        queryKey: ['order'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/order')
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    console.log(newOrder)
 
     if (isLoading) {
         <Loading></Loading>
@@ -71,6 +69,28 @@ const MyOrders = () => {
                                 <td>{book.orderDate}</td>
                                 <td>{book.slot}</td>
                                 <td>{book.price}</td>
+                                {/* <td> <button onClick={() => handleDelete(user?.id)} className="btn btn-circle btn-outline">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button></td> */}
+                            </tr>)}
+
+                    </tbody>
+                    <tbody>
+
+                        {newOrder?.map((newOrder, i) =>
+                            <tr className='bg-white' key={newOrder._id}>
+                                <th>{i + 1}</th>
+                                <div className="avatar ">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img src={newOrder.photoURL} alt="Avatar Tailwind CSS Component" />
+                                    </div>
+                                </div>
+
+                                <td>{newOrder.name}</td>
+                                <td>{newOrder.productName}</td>
+                                <td>{newOrder.time}</td>
+                                <td>{newOrder.time}</td>
+                                <td>{newOrder.price}$</td>
                                 {/* <td> <button onClick={() => handleDelete(user?.id)} className="btn btn-circle btn-outline">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button></td> */}
