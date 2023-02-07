@@ -73,11 +73,6 @@ export const router = createBrowserRouter([
                 path: '/dashboard/addProduct',
                 element: <AddProDuct />
             },
-            {
-                path: '/dashboard/addProductInfo/:id',
-                element: <AddProDuctInfo />,
-                loader: ({ params }) => fetch(`http://localhost:5000/editCategories/${params.id}`)
-            },
 
         ]
     }

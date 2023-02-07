@@ -29,7 +29,7 @@ const InfoCards = () => {
     return (
         <div className='container mx-auto'>
             <div className='py-10'>
-                <h1 className='text-4xl text-center  '>Here our Customer Reaction</h1>
+                <h1 className='text-4xl text-center  '>Here our Category Collections</h1>
             </div>
             <div className='grid  gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3' >
 

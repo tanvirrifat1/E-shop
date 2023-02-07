@@ -45,7 +45,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='navbar z-20'>
+        <div className=''>
             <div
                 style={{
                     backgroundColor: '#16a085',
