@@ -48,7 +48,7 @@ const InfoCards = () => {
                         </div>
                         <Link to={`/products/category/${category.categoryId}`}>
                             <div className='flex justify-center my-4'>
-                                <button className="btn  w-full btn-error">{category.categoryName}</button>
+                                <button className="btn max-w-xs hover:scale-110 rounded-2xl transition duration-500 btn-outline ease-in-out w-full btn-secondary">{category.categoryName}</button>
                             </div>
                         </Link>
                     </div >)
