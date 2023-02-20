@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import SmallSpinner from '../../LoadingButton/SmallSpinner/SmallSpinner';
@@ -11,7 +12,7 @@ const AddProDuct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const { user } = useContext(AuthContext)
     const imgKey = process.env.REACT_APP_IMG_key
-
+    const navigate = useNavigate()
     // const items = ["mans", "children", "woman",]
 
     const handleAddProduct = (data) => {
@@ -49,7 +50,7 @@ const AddProDuct = () => {
                     addProduct(productInfo)
                     console.log(productInfo)
                     setLoading(false)
-
+                    navigate('/')
                 }
                 console.log(imageData)
             })

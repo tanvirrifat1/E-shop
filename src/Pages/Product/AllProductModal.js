@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import LoadingButton from '../LoadingButton/LoadingButton';
 import SmallSpinner from '../LoadingButton/SmallSpinner/SmallSpinner';
 
@@ -8,17 +9,11 @@ const AllProductModal = ({ product, setProduct }) => {
     const { categories, description, name, photoURL, price, productName, time } = product
     const [loading, setLoading] = useState(false)
 
+    const navigate = useNavigate()
+
     const handleSubmit = (event) => {
         event.preventDefault()
         setLoading(true)
-        // const form = event.target
-        // const description = form.description.value
-        // const name = form.name.value
-        // const photoURL = form.name.photoURL
-        // const price = form.price.value
-        // const productName = form.productName.value
-        // const time = form.time.value
-
         const booking = {
             description,
             name,
@@ -41,6 +36,7 @@ const AllProductModal = ({ product, setProduct }) => {
                     toast.success('Order Confirmed')
                     setLoading(false)
                     setProduct(null)
+                    navigate('/dashboard')
                 }
             })
     }
