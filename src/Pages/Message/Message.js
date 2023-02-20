@@ -1,30 +1,35 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const Message = () => {
+
+    const { data: booking = [], refetch, isLoading } = useQuery({
+        queryKey: ['booking'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/order`)
+            const data = await res.json();
+            return data
+        }
+    })
+
+    console.log(booking)
+
     return (
         <div>
-            <div className='p-10'>
-                <div className="chat chat-start">
-                    <div className="chat-bubble chat-bubble-primary">What kind of nonsense is this</div>
+            <div>
+                <div className='flex justify-around'>
+                    <h1 className='mb-10 text-start text-3xl '>Order Summary</h1>
+                    <p className='font-semibold'>Jan 2022- July 2022</p>
+                    <p className='font-semibold'>Last 7 Month</p>
+                    <p className='font-semibold'>Some Period last Year</p>
                 </div>
-                <div className="chat chat-start">
-                    <div className="chat-bubble chat-bubble-secondary">Put me on the Council and not make me a Master!??</div>
-                </div>
-                <div className="chat chat-start">
-                    <div className="chat-bubble chat-bubble-accent">That's never been done in the history of the Jedi. It's insulting!</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-info">Calm down, Anakin.</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-success">You have been given a great honor.</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-warning">To be on the Council at your age.</div>
-                </div>
-                <div className="chat chat-end">
-                    <div className="chat-bubble chat-bubble-error">It's never happened before.</div>
-                </div>
+                <AreaChart width={1700} height={450} data={booking}>
+                    <Area type="monotone" dataKey="price" stackId="1" stroke="#7552cc" fill="#7552cc" />
+                    <XAxis dataKey='productName' />
+                    <YAxis />
+                    <Tooltip />
+                </AreaChart>
             </div>
         </div>
     );
