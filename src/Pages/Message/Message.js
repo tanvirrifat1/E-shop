@@ -7,7 +7,7 @@ const Message = () => {
     const { data: booking = [], refetch, isLoading } = useQuery({
         queryKey: ['booking'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/order`)
+            const res = await fetch(`https://e-shop-server-tanvirrifat1.vercel.app/order`)
             const data = await res.json();
             return data
         }
