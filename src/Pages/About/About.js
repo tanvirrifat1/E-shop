@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
-import img from '../../assets/about/email.jpg'
-import img1 from '../../assets/about/messenger.jpg'
+import img from '../../assets/about/gmail-grid.webp'
+import img1 from '../../assets/about/linkedin.jpg'
 import img2 from '../../assets/about/whatsapp.jpg'
 
 // import React, { useRef } from 'react';
@@ -40,12 +40,11 @@ const About = () => {
         <div>
             <div>
                 <section className=" mt-6 ">
-
                     <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
                         <h2 className="text-2xl font-semibold sm:text-4xl flex justify-center uppercase">5 Order Way</h2>
                         <div className="space-y-4 text-xl rounded-xl">
                             <details className="w-full border " open="">
-                                <summary className="px-4 py-6 focus:outline-none bg-teal-600 text-white">Browse catalog</summary>
+                                <summary className="px-4 py-6 focus:outline-none du bg-teal-600 text-white">Browse catalog</summary>
                                 <p className="px-4 py-6 pt-0 ml-4 mt-9 "> Customers can browse through the product catalog, filtering by categories, brands, or price.</p>
                             </details>
                             <details className="w-full border ">
@@ -103,7 +102,7 @@ const About = () => {
                                 </div>
                                 <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                 <h4>Messenger</h4>
-                                <h5>HR</h5>
+                                <h5>MD Rifat Miah</h5>
                                 <a href="#">
                                     Send a message
                                 </a>
@@ -161,7 +160,7 @@ const About = () => {
                                     className='btn btn-accent mt-3 w-full'
                                     value='Send'
                                 >
-                                    {loading ? <SmallSpinner /> : 'submit'}
+                                    {loading ? <SmallSpinner /> : 'send your message'}
                                 </LoadingButton>
                             </div>
 
