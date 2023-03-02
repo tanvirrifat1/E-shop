@@ -48,7 +48,7 @@ const InfoCards = () => {
                             </div>
                             <Link to={`/products/category/${category.categoryId}`}>
                                 <div className='flex justify-center absolute bottom-0 left-0 w-full h-0 flex-col  items-center opacity-0 group-hover:h-full group-hover:opacity-90 duration-500'>
-                                    <button className=" max-w-xs hover:scale-110 rounded-2xl transition duration-500 btn ease-in-out w-full btn-secondary">{category.categoryName}</button>
+                                    <button className=" max-w-xs mt-16 hover:scale-110 rounded-2xl transition duration-500 btn ease-in-out w-full btn-secondary">{category.categoryName}</button>
                                 </div>
                             </Link>
                         </div >)

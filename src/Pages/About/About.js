@@ -86,7 +86,7 @@ const About = () => {
 
                                 <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                 <h4>Email</h4>
-                                <h5>Company@gmail.com</h5>
+                                <h5 className='hover:text-xl duration-700'>rifatkhan5567790@gmail.com</h5>
                                 <a href="#">
                                     Send a message
                                 </a>
@@ -120,7 +120,7 @@ const About = () => {
                                 </div>
                                 <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
                                 <h4>WhatsApp</h4>
-                                <h5>Company Number</h5>
+                                <h5 className='hover:text-xl duration-700'>+8801633912193</h5>
                                 <a href="#">
                                     Send a message
                                 </a>
@@ -137,21 +137,21 @@ const About = () => {
 
                                 name="user_name"
                                 placeholder="Enter your name"
-                                className="w-full p-6 bg-transparent border-2 border-black  text-black "
+                                className="w-full p-6 bg-transparent border-2 border-base-300 rounded-2xl text-black "
                             />
                             <input
                                 type="text"
                                 name="user_email"
                                 placeholder="Enter your email"
                                 required
-                                className="w-full p-6 bg-transparent border-2 border-black  text-black "
+                                className="w-full p-6 bg-transparent border-2 border-base-300 rounded-2xl text-black "
                             />
                             <textarea
                                 name="message"
                                 placeholder="Enter your message"
                                 rows="10"
                                 required
-                                className="w-full p-6 bg-transparent border-2 border-black  text-black "
+                                className="w-full p-6 bg-transparent border-2 border-base-300 rounded-2xl text-black "
                             ></textarea>
 
 
