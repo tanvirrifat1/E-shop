@@ -70,7 +70,7 @@ const About = () => {
             <div>
                 <section className="py-6 ">
                     <h1 className='text-3xl font-semibold text-center my-6'>Contact us</h1>
-                    <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
+                    <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 ">
                         <div>
                             <article
                                 style={{
@@ -101,7 +101,7 @@ const About = () => {
                                     <img className='w-12 h-12 rounded-full ' src={img1} alt="" />
                                 </div>
                                 <div className="mb-2 text-center hover:bg-green-500 inline-block text-3xl" />
-                                <h4>Messenger</h4>
+                                <h4>Linkedin</h4>
                                 <h5>MD Rifat Miah</h5>
                                 <a href="#">
                                     Send a message

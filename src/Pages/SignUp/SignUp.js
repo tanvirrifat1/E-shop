@@ -162,7 +162,6 @@ const SignUp = () => {
                                 <div className="divider">OR</div>
                             </form>
                             <button onClick={handleGoogleLogin} className="btn btn-outline btn-secondary w-full"><FaGoogle className='mr-2 text-2xl'></FaGoogle> CONTINUE WITH GOOGLE</button>
-
                         </div>
                     </div>
                 </div>

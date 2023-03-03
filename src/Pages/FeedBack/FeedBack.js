@@ -86,20 +86,20 @@ const FeedBack = () => {
                     <div className=' gap-4'>
                         <div className=''>
                             <p className='my-1 text-white'>Name</p>
-                            <input name="name" type="text" placeholder="Last Name" className="input   bg-white text-black input-ghost w-full  input-bordered input-primary " />
+                            <input name="name" type="text" placeholder="Your Name" className=" w-full p-3 bg-transparent border-2 border-base-300 rounded-2xl text-white  " />
                         </div>
                         <div className=''>
                             <p className='my-1 text-white'>Email</p>
-                            <input name="email" type="text" placeholder="Your email" className="  bg-white text-black input input-ghost w-full  input-bordered input-primary " />
+                            <input name="email" type="text" placeholder="Your email" className=" w-full p-3 bg-transparent border-2 border-base-300 rounded-2xl text-white  " />
                         </div>
                         <div className=''>
                             <p className='my-1 text-white'>Image</p>
-                            <input name="image" type="file" placeholder="Your Photo" className="  bg-white text-black input input-ghost w-full  input-bordered input-primary " />
+                            <input name="image" type="file" placeholder="Your Photo" className=" w-full p-3 bg-transparent border-2 border-base-300 rounded-2xl text-white " />
                         </div>
                     </div>
                     <div>
                         <p className='my-1 text-white'>Description</p>
-                        <textarea name='description' className="textarea  text-black  bg-white  textarea-primary h-24 w-full" placeholder="Description" required></textarea>
+                        <textarea name='description' className="w-full p-6 bg-transparent border-2 border-base-300 rounded-2xl text-white " placeholder="Description" required></textarea>
                     </div>
                     {/* <input className=' bg-white w-full btn mt-4 btn-active btn-info' type="submit" value="submit" /> */}
 
@@ -119,9 +119,9 @@ const FeedBack = () => {
                 {feedbacks && feedbacks.map(feedback => {
                     const { description, name, email, image, _id } = feedback
                     return (
-                        <div key={_id} className="max-w-md p-8 sm:flex shadow-2xl sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
+                        <div key={_id} className="max-w-md p-8 sm:flex shadow-2xl sm:space-x-6 text-white">
                             <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
-                                <img src={image} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />
+                                <img src={image} alt="" className="max-w-xs transition duration-300 ease-in-out hover:scale-110 object-cover object-center w-full h-full rounded dark:bg-gray-500" />
                             </div>
                             <div className="flex flex-col space-y-4">
                                 <div>
@@ -134,7 +134,9 @@ const FeedBack = () => {
                                     </span>
                                     <span className="flex items-center mt-2 space-x-2">
                                         <p className='text-xl'><MdOutlineDescription /></p>
-                                        <span className="dark:text-gray-400">{description}</span>
+                                        <marquee behavior="" direction="10">
+                                            <span className="w-full p-3 bg-transparent border-2 border-base-300 rounded-2xl text-white  ">{description}</span>
+                                        </marquee>
                                     </span>
                                 </div>
                             </div>
