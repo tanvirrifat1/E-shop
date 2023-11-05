@@ -17,63 +17,71 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        children: [
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
-                path: '/signup',
-                element: <SignUp></SignUp>
-            },
-            {
-                path: '/orders',
-                element: <Orders></Orders>
-            },
-            {
-                path: '/about',
-                element: <About></About>
-            },
-            {
-                path: '/feedback',
-                element: <FeedBack></FeedBack>
-            },
-            {
-                path: '/message',
-                element: <Message></Message>,
-            },
-            {
-                path: '/products/category/:id',
-                element: <PrivateRoute><Product /></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://e-shop-server-tanvirrifat1.vercel.app/products/category/${params.id}`),
-            },
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/orders",
+        element: <Orders></Orders>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/feedback",
+        element: <FeedBack></FeedBack>,
+      },
+      {
+        path: "/message",
+        element: <Message></Message>,
+      },
 
-        ]
-    },
-    {
-        path: '/dashboard',
-        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-        children: [
-            {
-                path: '/dashboard',
-                element: <MyOrders />
-            },
-            {
-                path: '/dashboard/allusers',
-                element: <AllUsers />
-            },
-            {
-                path: '/dashboard/addProduct',
-                element: <AddProDuct />
-            },
-
-        ]
-    }
-])
+      {
+        path: "/products/category/:id",
+        element: (
+          <PrivateRoute>
+            <Product />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/category/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <MyOrders />,
+      },
+      {
+        path: "/dashboard/allusers",
+        element: <AllUsers />,
+      },
+      {
+        path: "/dashboard/addProduct",
+        element: <AddProDuct />,
+      },
+    ],
+  },
+]);
